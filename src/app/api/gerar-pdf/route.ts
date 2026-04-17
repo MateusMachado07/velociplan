@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
   // Generate the PDF
   try {
     const pdfBuffer = await gerarPDF(plano);
-    return new NextResponse(pdfBuffer, {
+    return new NextResponse(new Uint8Array(pdfBuffer), {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": 'attachment; filename="velociplan-treino.pdf"',
