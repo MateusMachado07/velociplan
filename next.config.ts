@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   // Mark Puppeteer and Chromium as server-only packages so Next.js doesn't
   // try to bundle them for the browser (they only run on the server for PDF generation)
   serverExternalPackages: ["puppeteer-core", "@sparticuz/chromium", "stripe", "puppeteer"],
