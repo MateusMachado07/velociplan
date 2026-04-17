@@ -2,6 +2,8 @@
 
 Plano de treino de ciclismo personalizado gerado por IA, entregue como PDF profissional.
 
+**Site ao vivo:** [velociplan-n3f1.vercel.app](https://velociplan-n3f1.vercel.app)
+
 ## O que é isto?
 
 Uma aplicação web que:
@@ -12,7 +14,7 @@ Uma aplicação web que:
 
 ## Pré-requisitos
 
-- [Node.js](https://nodejs.org/) versão 18 ou superior (tens o 22 — ótimo)
+- [Node.js](https://nodejs.org/) versão 18 ou superior
 - Uma conta [Anthropic](https://console.anthropic.com/) para a chave da API
 - Uma conta [Stripe](https://stripe.com/) para pagamentos
 - [Stripe CLI](https://stripe.com/docs/stripe-cli) para testar webhooks localmente
@@ -42,17 +44,8 @@ Abre `.env.local` e preenche:
 
 ### 3. Configurar webhooks do Stripe para desenvolvimento local
 
-O Stripe precisa de enviar notificações para a tua app quando um pagamento é confirmado.
-Em desenvolvimento, usa o Stripe CLI para isso:
-
 ```bash
-# Instalar o Stripe CLI (se ainda não tens)
-# Windows: https://stripe.com/docs/stripe-cli#install
-
-# Fazer login
 stripe login
-
-# Reencaminhar webhooks para a tua app local
 stripe listen --forward-to localhost:3000/api/stripe/webhook
 ```
 
@@ -72,17 +65,18 @@ Abre [http://localhost:3000](http://localhost:3000) no browser.
 src/
 ├── app/
 │   ├── page.tsx              # Página inicial (landing page)
-│   ├── gerar/page.tsx        # Formulário multi-passo (Fase 2)
-│   ├── plano/page.tsx        # Pré-visualização do plano (Fases 3 & 4)
+│   ├── gerar/page.tsx        # Formulário multi-passo
+│   ├── plano/page.tsx        # Pré-visualização do plano
+│   ├── sucesso/page.tsx      # Página de sucesso após pagamento
 │   └── api/
-│       ├── gerar-plano/      # Chamada à API do Claude (Fase 3)
-│       ├── gerar-pdf/        # Geração do PDF com Puppeteer (Fase 5)
+│       ├── gerar-plano/      # Chamada à API do Claude
+│       ├── gerar-pdf/        # Geração do PDF com Puppeteer
 │       └── stripe/
-│           ├── checkout/     # Criar sessão de pagamento (Fase 4)
-│           └── webhook/      # Receber confirmação de pagamento (Fase 4)
+│           ├── checkout/     # Criar sessão de pagamento
+│           └── webhook/      # Receber confirmação de pagamento
 ├── components/               # Componentes de UI reutilizáveis
 ├── lib/
-│   ├── ai.ts                 # Cliente da API do Claude
+│   ├── pdf.ts                # Geração do PDF (HTML → Puppeteer)
 │   ├── stripe.ts             # Cliente do Stripe
 │   ├── utils.ts              # Utilitários (cn para Tailwind)
 │   └── validations.ts        # Schemas de validação (Zod)
@@ -99,15 +93,17 @@ src/
 | `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Chave pública do Stripe | Mesmo lugar |
 | `STRIPE_WEBHOOK_SECRET` | Segredo para verificar webhooks | Stripe CLI ou dashboard |
 | `PLAN_PRICE_EUR` | Preço do plano em EUR | Define tu (padrão: `9.99`) |
-| `NEXT_PUBLIC_APP_URL` | URL da app | `http://localhost:3000` em dev |
+| `NEXT_PUBLIC_APP_URL` | URL da app | `http://localhost:3000` em dev, URL do Vercel em produção |
 
 ## Deploy (Vercel)
 
-Instruções completas na Fase 6 do projeto.
+O projeto está publicado no Vercel com deploy automático a cada `git push`.
+
+Variáveis de ambiente necessárias no Vercel: todas as acima, com `NEXT_PUBLIC_APP_URL` igual ao URL do Vercel.
 
 ## Stack técnica
 
-- **Next.js 15** — framework frontend + backend
+- **Next.js 16** — framework frontend + backend
 - **TypeScript** — tipagem estática
 - **Tailwind CSS** — estilos
 - **Anthropic Claude API** — geração do plano de treino por IA
