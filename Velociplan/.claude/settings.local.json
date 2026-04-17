@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest CoachFlow --js --tailwind --eslint --app --no-src-dir --use-npm)",
+      "Bash(npx create-next-app@latest coach-flow --js --tailwind --eslint --app --no-src-dir --use-npm)",
+      "Bash(npm run:*)",
+      "Bash(npm -v)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}
