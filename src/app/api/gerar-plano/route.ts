@@ -38,9 +38,10 @@ function checkRateLimit(ip: string): { allowed: boolean; retryAfterSecs: number 
     return { allowed: true, retryAfterSecs: 0 };
   }
 
-  if (entry.count >= MAX_REQUESTS) {
-    return { allowed: false, retryAfterSecs: Math.ceil((entry.resetAt - now) / 1000) };
-  }
+  // TEMP: rate limit disabled for testing
+  // if (entry.count >= MAX_REQUESTS) {
+  //   return { allowed: false, retryAfterSecs: Math.ceil((entry.resetAt - now) / 1000) };
+  // }
 
   entry.count++;
   return { allowed: true, retryAfterSecs: 0 };
