@@ -365,7 +365,7 @@ function StepEquipamento({ data, setData }: StepProps) {
     },
     {
       key: "treinadorIndoor",
-      label: "Treinador Indoor / Rolo",
+      label: "Bicicleta Estática",
       icon: "🏠",
       description: "Podes treinar em casa independentemente do clima.",
     },
