@@ -10,7 +10,7 @@ const faqs = [
   {
     pergunta: "Quanto tempo demora a gerar o plano?",
     resposta:
-      "Normalmente entre 1 a 2 minutos. A IA analisa o teu perfil e cria um plano completo e personalizado — não é um template genérico.",
+      "Normalmente entre 1 a 3 minutos. A IA analisa o teu perfil e cria um plano completo e personalizado — não é um template genérico.",
   },
   {
     pergunta: "Como recebo o PDF?",
