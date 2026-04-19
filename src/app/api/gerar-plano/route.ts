@@ -1,3 +1,5 @@
+export const maxDuration = 300; // 5 minutes — Vercel serverless function timeout
+
 // POST /api/gerar-plano
 // Receives the validated form data, builds a detailed prompt, calls Claude,
 // and returns the structured training plan as JSON.
