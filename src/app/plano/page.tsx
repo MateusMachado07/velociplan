@@ -135,6 +135,15 @@ export default function PlanoPage() {
     generatePlan();
   }, [router, attempt]);
 
+  // Prevent back navigation once the plan is shown
+  useEffect(() => {
+    if (state.status !== "success") return;
+    history.pushState(null, "", window.location.href);
+    const handlePopState = () => history.pushState(null, "", window.location.href);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [state.status]);
+
   // Creates a Stripe Checkout session and redirects the user to Stripe's payment page
   async function handlePagar() {
     setPagando(true);
@@ -240,6 +249,16 @@ export default function PlanoPage() {
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Image src="/logo.png" alt="VelociPlan" width={180} height={54} />
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => {
+                sessionStorage.removeItem("velociplan_form");
+                sessionStorage.removeItem("velociplan_plano");
+                router.push("/gerar");
+              }}
+              className="text-sm text-gray-400 hover:text-white transition-colors"
+            >
+              Novo Plano
+            </button>
             <button
               onClick={handlePagar}
               disabled={pagando}
