@@ -333,8 +333,11 @@ export async function POST(req: NextRequest) {
     }
 
     if (err instanceof Anthropic.APIError) {
+      const isNoCredits = err.message.includes("credit balance");
       return NextResponse.json(
-        { error: `Erro Anthropic ${err.status}: ${err.message}` },
+        { error: isNoCredits
+            ? "O serviço de IA está temporariamente indisponível. Tenta novamente mais tarde."
+            : `O serviço de IA encontrou um problema (erro ${err.status}). Tenta novamente.` },
         { status: 500 }
       );
     }
