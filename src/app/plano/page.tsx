@@ -192,7 +192,7 @@ export default function PlanoPage() {
 
           <p className="text-gray-600 text-xs mt-6 max-w-xs">
             A Inteligência Artificial está a criar um plano exclusivo para o teu
-            perfil. Isto pode demorar 1 a 5 minutos.
+            perfil. Isto pode demorar 1 a 3 minutos.
           </p>
         </div>
       </div>
