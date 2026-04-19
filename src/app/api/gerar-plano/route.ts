@@ -334,7 +334,7 @@ export async function POST(req: NextRequest) {
 
     if (err instanceof Anthropic.APIError) {
       return NextResponse.json(
-        { error: `O serviço de IA encontrou um problema (erro ${err.status}). Tenta novamente.` },
+        { error: `Erro Anthropic ${err.status}: ${err.message}` },
         { status: 500 }
       );
     }
