@@ -1,31 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-// ── Placeholder testimonials — replace with real ones when you have customers ──
-const testimonials = [
-  {
-    nome: "Ricardo M.",
-    perfil: "Ciclista de estrada · Lisboa",
-    texto:
-      "Sempre treinei sem estrutura e nunca evoluía. Com o VelociPlan tenho finalmente um plano que encaixa na minha vida. Em 6 semanas melhorei visivelmente a resistência.",
-    iniciais: "RM",
-  },
-  {
-    nome: "Ana S.",
-    perfil: "Ciclista iniciante · Porto",
-    texto:
-      "Nunca pensei que €9,99 pudessem fazer tanta diferença. O plano é detalhado, fácil de seguir e foi feito exactamente para o meu nível. Vale cada cêntimo.",
-    iniciais: "AS",
-  },
-  {
-    nome: "João F.",
-    perfil: "Gravel · Braga",
-    texto:
-      "Tentei contratar um treinador mas era demasiado caro. O VelociPlan deu-me um plano de qualidade profissional por uma fracção do preço. Recomendo.",
-    iniciais: "JF",
-  },
-];
-
 const faqs = [
   {
     pergunta: "Funciona para iniciantes?",
@@ -103,12 +78,6 @@ const jsonLdProduct = {
     availability: "https://schema.org/InStock",
     priceValidUntil: "2026-12-31",
     seller: { "@type": "Organization", name: "VelociPlan" },
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "3",
-    bestRating: "5",
   },
 };
 
@@ -364,41 +333,6 @@ export default function HomePage() {
                 <div className="text-3xl mb-3">{f.icon}</div>
                 <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{f.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Testimonials ── */}
-      <section className="px-6 py-16 bg-white/5">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-3">O que dizem os ciclistas</h2>
-          <p className="text-center text-gray-400 mb-12">Reais. Sem filtros.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <div
-                key={t.nome}
-                className="p-6 rounded-xl bg-white/5 border border-white/10 flex flex-col"
-              >
-                {/* Stars */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-sm">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-300 text-sm leading-relaxed flex-1 mb-5">
-                  &ldquo;{t.texto}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-brand-blue/20 border border-brand-blue/40 flex items-center justify-center text-xs font-bold text-brand-blue shrink-0">
-                    {t.iniciais}
-                  </div>
-                  <div>
-                    <p className="text-white text-sm font-semibold">{t.nome}</p>
-                    <p className="text-gray-500 text-xs">{t.perfil}</p>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
