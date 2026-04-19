@@ -152,9 +152,7 @@ export default function PlanPreview({
 
       {/* ── Plan cover — mirrors PDF .plan-cover ── */}
       <div className="pt-8 pb-5">
-        <div className="inline-flex items-center gap-2 bg-[#1E90FF]/10 border border-[#1E90FF]/30 text-[#60a5fa] text-[9px] font-bold px-3 py-[3px] rounded-full uppercase tracking-widest mb-5">
-          Pré-visualização Gratuita
-        </div>
+
         <div className="bg-[#0a1520] border border-[#1E90FF]/20 rounded-xl px-5 py-[18px] mb-[18px]">
           <div className="inline-block bg-[#1E90FF]/[0.12] border border-[#1E90FF]/35 text-[#60a5fa] text-[9px] font-bold px-2.5 py-[3px] rounded-full uppercase tracking-[1px] mb-2.5">
             Plano Personalizado por IA
