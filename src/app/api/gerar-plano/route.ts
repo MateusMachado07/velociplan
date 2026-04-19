@@ -1,10 +1,9 @@
 export const maxDuration = 300; // 5 minutes — Vercel serverless function timeout
 
-// POST /api/gerar-plano
-// Receives the validated form data, builds a detailed prompt, calls Claude,
-// and returns the structured training plan as JSON.
-
 import { NextRequest, NextResponse } from "next/server";
+import Anthropic from "@anthropic-ai/sdk";
+import { getAnthropicClient } from "@/lib/ai";
+import { formDataSchema, type FormDataInput } from "@/lib/validations";
 
 // ── Rate limiter — in-memory, per IP ──────────────────────────────
 // Limits each IP to MAX_REQUESTS plan generations per WINDOW_MS.
@@ -38,17 +37,13 @@ function checkRateLimit(ip: string): { allowed: boolean; retryAfterSecs: number 
     return { allowed: true, retryAfterSecs: 0 };
   }
 
-  // TEMP: rate limit disabled for testing
-  // if (entry.count >= MAX_REQUESTS) {
-  //   return { allowed: false, retryAfterSecs: Math.ceil((entry.resetAt - now) / 1000) };
-  // }
+  if (entry.count >= MAX_REQUESTS) {
+    return { allowed: false, retryAfterSecs: Math.ceil((entry.resetAt - now) / 1000) };
+  }
 
   entry.count++;
   return { allowed: true, retryAfterSecs: 0 };
 }
-import { getAnthropicClient } from "@/lib/ai";
-import { formDataSchema, type FormDataInput } from "@/lib/validations";
-
 // ── System prompt ─────────────────────────────────────────────────
 // Instructs Claude to act as a professional cycling coach and return
 // ONLY a valid JSON object matching our PlanoTreino type.
@@ -323,20 +318,36 @@ export async function POST(req: NextRequest) {
   } catch (err: unknown) {
     console.error("[gerar-plano] Unhandled error:", err);
 
-    // Friendly message for missing API key
+    if (err instanceof Anthropic.RateLimitError) {
+      return NextResponse.json(
+        { error: "Demasiados pedidos num curto espaço de tempo. Aguarda 1 minuto e tenta novamente." },
+        { status: 429 }
+      );
+    }
+
+    if (err instanceof Anthropic.AuthenticationError) {
+      return NextResponse.json(
+        { error: "O servidor não está configurado correctamente. Por favor contacta o suporte." },
+        { status: 500 }
+      );
+    }
+
+    if (err instanceof Anthropic.APIError) {
+      return NextResponse.json(
+        { error: `O serviço de IA encontrou um problema (erro ${err.status}). Tenta novamente.` },
+        { status: 500 }
+      );
+    }
+
     if (err instanceof Error && err.message.includes("ANTHROPIC_API_KEY")) {
       return NextResponse.json(
-        {
-          error: "O servidor não está configurado correctamente. Por favor contacta o suporte.",
-        },
+        { error: "O servidor não está configurado correctamente. Por favor contacta o suporte." },
         { status: 500 }
       );
     }
 
     return NextResponse.json(
-      {
-        error: "Ocorreu um erro ao gerar o teu plano. Verifica a tua ligação e tenta novamente.",
-      },
+      { error: "Ocorreu um erro ao gerar o teu plano. Tenta novamente." },
       { status: 500 }
     );
   }
