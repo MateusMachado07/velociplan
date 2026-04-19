@@ -240,12 +240,6 @@ export default function PlanoPage() {
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Image src="/logo.png" alt="VelociPlan" width={180} height={54} />
           <div className="flex items-center gap-3">
-            <Link
-              href="/gerar"
-              className="text-sm text-gray-400 hover:text-white transition-colors"
-            >
-              ← Novo Plano
-            </Link>
             <button
               onClick={handlePagar}
               disabled={pagando}
