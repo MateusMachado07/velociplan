@@ -11,7 +11,7 @@ import { NextRequest, NextResponse } from "next/server";
 // Works for MVP / single-server deployments. For multi-instance
 // deployments (e.g. Vercel with multiple regions), swap for Redis.
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
-const MAX_REQUESTS = 3;          // max plan generations per IP
+const MAX_REQUESTS = 10;         // max plan generations per IP
 const WINDOW_MS = 60 * 60 * 1000; // 1-hour sliding window
 
 function getClientIp(req: NextRequest): string {
