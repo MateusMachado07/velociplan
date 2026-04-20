@@ -47,16 +47,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt">
-      <head>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-18055852636" strategy="afterInteractive" />
+      <body>
+        {children}
+        <SpeedInsights />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18055852636" strategy="afterInteractive" />
         <Script id="google-ads" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'AW-18055852636');
         `}</Script>
-      </head>
-      <body>{children}<SpeedInsights /></body>
+      </body>
     </html>
   );
 }
