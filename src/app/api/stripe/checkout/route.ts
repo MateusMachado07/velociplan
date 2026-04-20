@@ -23,7 +23,6 @@ export async function POST() {
               name: "VelociPlan — Plano de Treino Personalizado",
               description:
                 "Plano de treino de ciclismo gerado por IA, personalizado ao teu perfil — PDF completo para descarregar.",
-              images: [`${appUrl}/stripe-preview.png`],
             },
             unit_amount: PLAN_PRICE_CENTS, // e.g. 999 = €9.99
           },
