@@ -34,6 +34,313 @@ function IconBanknotes() {
   );
 }
 
+// ── PDF Mockup ─────────────────────────────────────────────────────────────────
+type MockupSessao = {
+  dia: string;
+  tipo: string | null;
+  duracao?: string;
+  descricao?: string;
+};
+
+type MockupSemana = {
+  numero: number;
+  titulo: string;
+  fase: string;
+  sessoes: MockupSessao[];
+};
+
+function getBadgeClass(tipo: string): string {
+  const map: Record<string, string> = {
+    "Recuperação Activa": "bg-emerald-500/15 border-emerald-500/30 text-emerald-400",
+    "Endurance":          "bg-[#1E90FF]/15 border-[#1E90FF]/30 text-[#60a5fa]",
+    "Força e Cadência":   "bg-yellow-500/15 border-yellow-500/30 text-yellow-400",
+    "Saída Longa":        "bg-violet-500/15 border-violet-500/30 text-violet-400",
+    "Tempo/Limiar":       "bg-orange-500/15 border-orange-500/30 text-orange-400",
+    "Intervalos de Alta Intensidade": "bg-red-500/15 border-red-500/30 text-red-400",
+    "Fartlek":            "bg-purple-500/15 border-purple-500/30 text-purple-400",
+    "Prova":              "bg-amber-500/15 border-amber-500/30 text-amber-400",
+  };
+  return map[tipo] ?? "bg-white/10 border-white/20 text-gray-400";
+}
+
+const SEMANAS_DATA: MockupSemana[] = [
+  {
+    numero: 1, titulo: "Semana 1", fase: "Adaptação e Base Aeróbica",
+    sessoes: [
+      { dia: "Segunda", tipo: "Endurance", duracao: "60 min", descricao: "Zona 2 · FC 65–75% · Cadência 85–95 rpm" },
+      { dia: "Terça", tipo: "Força e Cadência", duracao: "50 min", descricao: "Big gear climbs 5×4 min · Agachamentos pós-treino" },
+      { dia: "Quarta", tipo: "Endurance", duracao: "75 min", descricao: "Zona 2 · Terreno plano · Hidratação a cada 20 min" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Endurance", duracao: "60 min", descricao: "Zona 2 · Pedalada fluída · Cadência 90 rpm" },
+      { dia: "Sábado", tipo: "Saída Longa", duracao: "1h 45 min", descricao: "Zona 2 · Terreno variado · Foco na resistência aeróbica" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "30 min", descricao: "Zona 1 · Girar suave · Pernas leves" },
+    ],
+  },
+  {
+    numero: 2, titulo: "Semana 2", fase: "Consolidação Aeróbica",
+    sessoes: [
+      { dia: "Segunda", tipo: "Endurance", duracao: "70 min", descricao: "Zona 2 · +10 min progressão" },
+      { dia: "Terça", tipo: "Força e Cadência", duracao: "55 min", descricao: "Subidas força 6×3 min + 10 min cadência alta 110 rpm" },
+      { dia: "Quarta", tipo: "Endurance", duracao: "80 min", descricao: "Zona 2 · Terreno ondulado · Ritmo constante" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Recuperação Activa", duracao: "40 min", descricao: "Zona 1 · Ativação pré-fim-de-semana" },
+      { dia: "Sábado", tipo: "Saída Longa", duracao: "2h 00 min", descricao: "Zona 2 · 2 horas sem paragens · Nutrição prática" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "35 min", descricao: "Zona 1 · Pernas soltas" },
+    ],
+  },
+  {
+    numero: 3, titulo: "Semana 3", fase: "Desenvolvimento de Base",
+    sessoes: [
+      { dia: "Segunda", tipo: "Endurance", duracao: "75 min", descricao: "Zona 2 · Cadência constante 90 rpm" },
+      { dia: "Terça", tipo: "Força e Cadência", duracao: "60 min", descricao: "3 séries big gear + sprint cadência 120 rpm" },
+      { dia: "Quarta", tipo: "Endurance", duracao: "90 min", descricao: "Zona 2 · Terreno variado · Maior volume semanal" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Fartlek", duracao: "55 min", descricao: "3×8 min Zona 3 · Recuperação 5 min Zona 1" },
+      { dia: "Sábado", tipo: "Saída Longa", duracao: "2h 15 min", descricao: "Zona 2 · Nutrição em movimento · 40–60 g carb/hora" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "30 min", descricao: "Zona 1" },
+    ],
+  },
+  {
+    numero: 4, titulo: "Semana 4", fase: "Descarga — Recuperação",
+    sessoes: [
+      { dia: "Segunda", tipo: "Endurance", duracao: "50 min", descricao: "Zona 2 · Volume reduzido · Recuperação ativa" },
+      { dia: "Terça", tipo: "Recuperação Activa", duracao: "35 min", descricao: "Zona 1 · Mobilidade articular" },
+      { dia: "Quarta", tipo: "Endurance", duracao: "60 min", descricao: "Zona 2 · Manutenção aeróbica" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Força e Cadência", duracao: "45 min", descricao: "Volume baixo · Manutenção muscular" },
+      { dia: "Sábado", tipo: "Saída Longa", duracao: "1h 30 min", descricao: "Zona 2 · Volume reduzido · Regeneração" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "30 min", descricao: "Zona 1" },
+    ],
+  },
+  {
+    numero: 5, titulo: "Semana 5", fase: "Introdução ao Limiar",
+    sessoes: [
+      { dia: "Segunda", tipo: "Endurance", duracao: "70 min", descricao: "Zona 2 · Retoma de carga" },
+      { dia: "Terça", tipo: "Tempo/Limiar", duracao: "60 min", descricao: "2×15 min Zona 4 · FC 85–90% · Recuperação 5 min" },
+      { dia: "Quarta", tipo: "Endurance", duracao: "80 min", descricao: "Zona 2 · Base sólida · Recuperação ativa" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Força e Cadência", duracao: "55 min", descricao: "Big gear + ativação neuromuscular · Subidas 4×5 min" },
+      { dia: "Sábado", tipo: "Saída Longa", duracao: "2h 15 min", descricao: "Zona 2 com bloco 20 min Zona 3 a meio" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "35 min", descricao: "Zona 1" },
+    ],
+  },
+  {
+    numero: 6, titulo: "Semana 6", fase: "Trabalho de Limiar",
+    sessoes: [
+      { dia: "Segunda", tipo: "Endurance", duracao: "75 min", descricao: "Zona 2 · Base progressiva" },
+      { dia: "Terça", tipo: "Tempo/Limiar", duracao: "65 min", descricao: "3×12 min Zona 4 · Recuperação 4 min Zona 2" },
+      { dia: "Quarta", tipo: "Endurance", duracao: "85 min", descricao: "Zona 2–3 · Terreno ondulado · Progressão" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Tempo/Limiar", duracao: "60 min", descricao: "1×30 min Zona 4 contínuo · Foco na consistência" },
+      { dia: "Sábado", tipo: "Saída Longa", duracao: "2h 30 min", descricao: "Zona 2 · Último terço em Zona 3 · Carga progressiva" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "40 min", descricao: "Zona 1 · Pernas leves" },
+    ],
+  },
+  {
+    numero: 7, titulo: "Semana 7", fase: "Alta Intensidade",
+    sessoes: [
+      { dia: "Segunda", tipo: "Endurance", duracao: "65 min", descricao: "Zona 2 · Preparação semana intensa" },
+      { dia: "Terça", tipo: "Intervalos de Alta Intensidade", duracao: "60 min", descricao: "6×3 min Zona 5 · FC 92–97% · Recuperação 3 min" },
+      { dia: "Quarta", tipo: "Endurance", duracao: "80 min", descricao: "Zona 2 · Recuperação ativa entre sessões duras" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Intervalos de Alta Intensidade", duracao: "55 min", descricao: "8×2 min Zona 5–6 · Recuperação 2 min Zona 1" },
+      { dia: "Sábado", tipo: "Saída Longa", duracao: "2h 30 min", descricao: "Zona 2 + 5×30 s sprints nos últimos 30 min" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "35 min", descricao: "Zona 1" },
+    ],
+  },
+  {
+    numero: 8, titulo: "Semana 8", fase: "Descarga — Recuperação",
+    sessoes: [
+      { dia: "Segunda", tipo: "Recuperação Activa", duracao: "40 min", descricao: "Zona 1 · Recuperação activa após semana exigente" },
+      { dia: "Terça", tipo: "Endurance", duracao: "55 min", descricao: "Zona 2 · Volume reduzido" },
+      { dia: "Quarta", tipo: "Tempo/Limiar", duracao: "45 min", descricao: "1×15 min Zona 4 · Manutenção do estímulo" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Recuperação Activa", duracao: "30 min", descricao: "Zona 1" },
+      { dia: "Sábado", tipo: "Saída Longa", duracao: "1h 30 min", descricao: "Zona 2 · Volume baixo · Prazer e relaxamento" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "30 min", descricao: "Zona 1" },
+    ],
+  },
+  {
+    numero: 9, titulo: "Semana 9", fase: "Especificidade de Competição",
+    sessoes: [
+      { dia: "Segunda", tipo: "Endurance", duracao: "70 min", descricao: "Zona 2 · Retoma pós-descarga" },
+      { dia: "Terça", tipo: "Intervalos de Alta Intensidade", duracao: "65 min", descricao: "5×4 min Zona 5 · FC máxima atingida · Rec 4 min" },
+      { dia: "Quarta", tipo: "Endurance", duracao: "80 min", descricao: "Zona 2 · Confiança e ritmo" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Fartlek", duracao: "60 min", descricao: "Variações de ritmo · Simula dinâmica de pelotão" },
+      { dia: "Sábado", tipo: "Saída Longa", duracao: "2h 45 min", descricao: "Zona 2–3 · Simulação de prova · Ritmo de corrida" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "40 min", descricao: "Zona 1 · Recuperação obrigatória" },
+    ],
+  },
+  {
+    numero: 10, titulo: "Semana 10", fase: "Afinação de Forma",
+    sessoes: [
+      { dia: "Segunda", tipo: "Endurance", duracao: "65 min", descricao: "Zona 2 · Sensações fluídas · Pico de forma a aproximar" },
+      { dia: "Terça", tipo: "Tempo/Limiar", duracao: "60 min", descricao: "2×20 min Zona 4 · Eficiência máxima" },
+      { dia: "Quarta", tipo: "Intervalos de Alta Intensidade", duracao: "55 min", descricao: "4×4 min Zona 5 · Acuidade neuromuscular" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Endurance", duracao: "60 min", descricao: "Zona 2 · Manutenção · Fresco para o sábado" },
+      { dia: "Sábado", tipo: "Fartlek", duracao: "1h 30 min", descricao: "Esforços variados · Simula campo de prova real" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "35 min", descricao: "Zona 1" },
+    ],
+  },
+  {
+    numero: 11, titulo: "Semana 11", fase: "Última Carga",
+    sessoes: [
+      { dia: "Segunda", tipo: "Endurance", duracao: "70 min", descricao: "Zona 2 · Confiança e sensações finais" },
+      { dia: "Terça", tipo: "Intervalos de Alta Intensidade", duracao: "60 min", descricao: "5×3 min Zona 5 + 2×1 min Zona 6 · Ativação total" },
+      { dia: "Quarta", tipo: "Endurance", duracao: "75 min", descricao: "Zona 2–3 · Potência sustentada · Último bloco de volume" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Tempo/Limiar", duracao: "55 min", descricao: "2×15 min Zona 4 · Nitidez e confiança" },
+      { dia: "Sábado", tipo: "Saída Longa", duracao: "2h 00 min", descricao: "Zona 2 · Última saída longa antes do taper" },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "30 min", descricao: "Zona 1 · Início do taper" },
+    ],
+  },
+  {
+    numero: 12, titulo: "Semana 12", fase: "Taper — Semana de Prova",
+    sessoes: [
+      { dia: "Segunda", tipo: "Recuperação Activa", duracao: "35 min", descricao: "Zona 1 · Pernas leves · Taper activo" },
+      { dia: "Terça", tipo: "Intervalos de Alta Intensidade", duracao: "40 min", descricao: "3×2 min Zona 5 · Ativação neuromuscular · Volume mínimo" },
+      { dia: "Quarta", tipo: "Endurance", duracao: "45 min", descricao: "Zona 2 · Suave · Preparação mental e logística" },
+      { dia: "Quinta", tipo: null },
+      { dia: "Sexta", tipo: "Recuperação Activa", duracao: "25 min", descricao: "Zona 1 · Dia pré-prova · Pernas e mente descansadas" },
+      { dia: "Sábado", tipo: "Prova", descricao: "Executa o plano · Confia no treino · És capaz." },
+      { dia: "Domingo", tipo: "Recuperação Activa", duracao: "30 min", descricao: "Zona 1 · Recuperação pós-prova · Parabéns!" },
+    ],
+  },
+];
+
+function WeekCard({ semana }: { semana: MockupSemana }) {
+  return (
+    <div className="rounded-lg overflow-hidden border border-white/[0.08]">
+      <div className="bg-[#1E90FF]/15 border-b border-[#1E90FF]/25 px-3 py-2 flex items-center justify-between">
+        <span className="text-white text-xs font-black">{semana.titulo}</span>
+        <span className="text-[#60a5fa] text-[8px] font-bold uppercase tracking-wide">{semana.fase}</span>
+      </div>
+      <div className="divide-y divide-white/[0.05]">
+        {semana.sessoes.map((sessao) =>
+          sessao.tipo === null ? (
+            <div key={sessao.dia} className="px-3 py-1.5 flex items-center gap-2.5 bg-black/15">
+              <span className="text-[8px] font-black text-[#64748b] uppercase tracking-wide w-16 shrink-0">{sessao.dia}</span>
+              <span className="text-[#334155] text-[9px] italic">Descanso</span>
+            </div>
+          ) : (
+            <div key={sessao.dia} className="px-3 py-2 flex items-start gap-2.5">
+              <span className="text-[8px] font-black text-[#64748b] uppercase tracking-wide w-16 shrink-0 pt-0.5">{sessao.dia}</span>
+              <div className="flex-1 space-y-1 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className={`inline-block border text-[7px] font-bold px-2 py-0.5 rounded-full ${getBadgeClass(sessao.tipo)}`}>
+                    {sessao.tipo}
+                  </span>
+                  {sessao.duracao && (
+                    <span className="text-[#64748b] text-[8px]">{sessao.duracao}</span>
+                  )}
+                </div>
+                {sessao.descricao && (
+                  <p className="text-[#94a3b8] text-[8px] leading-relaxed">{sessao.descricao}</p>
+                )}
+              </div>
+            </div>
+          )
+        )}
+      </div>
+    </div>
+  );
+}
+
+function PDFMockup() {
+  return (
+    <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 select-none">
+      <div
+        className="max-h-[540px] overflow-y-auto bg-[#0D1B2A]"
+        style={{ scrollbarWidth: "thin", scrollbarColor: "#1E90FF40 #0a1520" }}
+      >
+        {/* Sticky mini-header */}
+        <div className="sticky top-0 z-10 bg-[#0a1520] border-b border-[#1E90FF]/25 px-5 py-2.5 flex items-center gap-3">
+          <Image src="/logo.png" alt="VelociPlan" width={90} height={27} className="opacity-90" />
+          <span className="text-[10px] text-[#60a5fa] font-semibold">
+            Plano de Treino Preparação para Prova — 12 Semanas
+          </span>
+        </div>
+
+        {/* Content */}
+        <div className="px-5 py-4 space-y-4">
+
+          {/* Cover block */}
+          <div className="bg-[#0a1520] border border-[#1E90FF]/20 rounded-lg p-4">
+            <div className="inline-block bg-[#1E90FF]/12 border border-[#1E90FF]/35 text-[#60a5fa] text-[8px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2">
+              Plano Personalizado por IA
+            </div>
+            <div className="text-white font-black text-sm leading-snug mb-3">
+              Plano de Treino Preparação para Prova — 12 Semanas
+            </div>
+            <div className="flex flex-wrap gap-4 mb-3">
+              {["12 semanas", "70 sessões", "6 dias/semana"].map((stat) => (
+                <div key={stat} className="flex items-center gap-1.5 text-[#94a3b8] text-[10px]">
+                  <div className="w-1.5 h-1.5 bg-[#1E90FF] rounded-full shrink-0" />
+                  {stat}
+                </div>
+              ))}
+            </div>
+            <div className="bg-[#1E90FF]/07 border border-[#1E90FF]/20 rounded-lg px-3 py-2.5 mb-2.5">
+              <div className="text-[#1E90FF] text-[7px] font-black uppercase tracking-widest mb-1.5">O Teu Perfil</div>
+              <p className="text-[#94a3b8] text-[9px] leading-relaxed">
+                Ciclista de competição · 35 anos · 75 kg · 6 dias/semana · Objetivo: preparação para prova
+              </p>
+            </div>
+            <div className="bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-2.5">
+              <div className="text-[#1E90FF] text-[7px] font-black uppercase tracking-widest mb-1.5">Visão Geral</div>
+              <p className="text-[#94a3b8] text-[9px] leading-relaxed">
+                Programa dividido em 4 fases: Base Aeróbica (sem 1–4), Desenvolvimento do Limiar (sem 5–8),
+                Alta Intensidade e Especificidade (sem 9–11) e Taper para Prova (sem 12). Volume progressivo
+                com semanas de descarga nas semanas 4 e 8.
+              </p>
+            </div>
+          </div>
+
+          {/* 12 weeks */}
+          {SEMANAS_DATA.map((semana) => (
+            <WeekCard key={semana.numero} semana={semana} />
+          ))}
+
+          {/* Final page — Nutrition, Recovery, Message */}
+          <div className="bg-[#0a1520] border border-[#1E90FF]/20 rounded-lg p-4 space-y-3.5">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-0.5 h-3 bg-[#1E90FF] rounded-full" />
+                <span className="text-[#1E90FF] text-[8px] font-black uppercase tracking-widest">Nutrição</span>
+              </div>
+              <div className="text-[#94a3b8] text-[9px] leading-relaxed space-y-1.5">
+                <p><span className="text-white font-semibold">Antes do treino:</span> Refeição leve 2–3h antes. Gel energético 15 min antes de sessões intensas.</p>
+                <p><span className="text-white font-semibold">Durante:</span> 30–60 g carboidratos/hora em saídas +90 min. Água + eletrólitos cada 20 min.</p>
+                <p><span className="text-white font-semibold">Após:</span> Proteína + carboidratos em 30 min. Frango + arroz ou batido de recuperação.</p>
+              </div>
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-0.5 h-3 bg-[#1E90FF] rounded-full" />
+                <span className="text-[#1E90FF] text-[8px] font-black uppercase tracking-widest">Recuperação</span>
+              </div>
+              <p className="text-[#94a3b8] text-[9px] leading-relaxed">
+                Sono 7–9 horas por noite. Rolo de espuma 10 min após treinos intensos.
+                Banho frio 3–5 min (12–15°C) após saídas longas. Compressão nas pernas
+                à noite nas semanas de alta carga.
+              </p>
+            </div>
+            <div className="border-t border-white/10 pt-3">
+              <p className="text-[#60a5fa] text-[9px] font-semibold italic text-center leading-relaxed">
+                &quot;Doze semanas de trabalho estruturado constroem o que anos de treino aleatório
+                nunca conseguem. Cada sessão tem um propósito. Confia no processo.&quot;
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Page data ─────────────────────────────────────────────────────────────────
 const faqs = [
   {
@@ -204,131 +511,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PDF Preview Mockup — mirrors real PDF cover, blurred content ── */}
+      {/* ── PDF Preview Mockup — scrollable simulation ── */}
       <section className="px-6 py-12">
         <div className="max-w-2xl mx-auto">
           <p className="text-center text-sm text-gray-500 mb-6 uppercase tracking-widest">O que recebes no PDF</p>
-
-          {/* Relative wrapper for gradient fade overlay */}
-          <div className="relative">
-            <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 select-none">
-
-              {/* ── Mini-header (identical to real PDF) ── */}
-              <div className="bg-[#0a1520] border-b border-[#1E90FF]/25 px-5 py-2.5 flex items-center gap-3">
-                <Image src="/logo.png" alt="VelociPlan" width={90} height={27} className="opacity-90" />
-                <span className="text-[10px] text-[#475569] font-semibold blur-sm">
-                  Plano de Treino Personalizado — 8 Semanas
-                </span>
-              </div>
-
-              {/* ── Page content ── */}
-              <div className="bg-[#0D1B2A] px-5 py-4 space-y-3.5">
-
-                {/* Plan cover block */}
-                <div className="bg-[#0a1520] border border-[#1E90FF]/20 rounded-lg p-3.5">
-                  <div className="inline-block bg-[#1E90FF]/12 border border-[#1E90FF]/35 text-[#60a5fa] text-[8px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2">
-                    Plano Personalizado por IA
-                  </div>
-                  <div className="text-white font-black text-sm leading-snug mb-2.5 blur-sm">
-                    Plano de Treino Fitness e Saúde Geral — 8 Semanas
-                  </div>
-                  <div className="flex gap-5">
-                    <div className="flex items-center gap-1.5 text-[#94a3b8] text-[10px] blur-sm">
-                      <div className="w-1.5 h-1.5 bg-[#1E90FF] rounded-full shrink-0" />
-                      8 semanas
-                    </div>
-                    <div className="flex items-center gap-1.5 text-[#94a3b8] text-[10px] blur-sm">
-                      <div className="w-1.5 h-1.5 bg-[#1E90FF] rounded-full shrink-0" />
-                      24 sessões de treino
-                    </div>
-                  </div>
-                </div>
-
-                {/* O Teu Perfil */}
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <div className="w-0.5 h-3 bg-[#1E90FF] rounded-full" />
-                    <span className="text-[#1E90FF] text-[8px] font-black uppercase tracking-widest">O Teu Perfil</span>
-                  </div>
-                  <div className="bg-[#1E90FF]/07 border border-[#1E90FF]/20 rounded-lg px-3 py-2.5">
-                    <div className="h-2 bg-[#1E90FF]/20 rounded-full w-full blur-sm" />
-                  </div>
-                </div>
-
-                {/* Visão Geral */}
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <div className="w-0.5 h-3 bg-[#1E90FF] rounded-full" />
-                    <span className="text-[#1E90FF] text-[8px] font-black uppercase tracking-widest">Visão Geral do Plano</span>
-                  </div>
-                  <div className="bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-2.5 space-y-1.5">
-                    <div className="h-2 bg-white/15 rounded-full w-full blur-sm" />
-                    <div className="h-2 bg-white/15 rounded-full w-4/5 blur-sm" />
-                  </div>
-                </div>
-
-                {/* Programa Semanal */}
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <div className="w-0.5 h-3 bg-[#1E90FF] rounded-full" />
-                    <span className="text-[#1E90FF] text-[8px] font-black uppercase tracking-widest">Programa Semanal</span>
-                  </div>
-
-                  {/* Week 1 block */}
-                  <div className="rounded-lg overflow-hidden border border-white/[0.08]">
-                    <div className="bg-[#1E90FF]/15 border-b border-[#1E90FF]/25 px-3 py-2 flex items-center justify-between">
-                      <span className="text-white text-xs font-black">Semana 1</span>
-                      <span className="text-[#60a5fa] text-[8px] font-bold uppercase tracking-wide blur-sm">Adaptação e Base Aeróbica</span>
-                    </div>
-                    <div className="divide-y divide-white/[0.05]">
-                      {/* Training day */}
-                      <div className="px-3 py-2 flex items-start gap-2.5">
-                        <span className="text-[8px] font-black text-[#64748b] uppercase tracking-wide w-20 shrink-0 pt-0.5">Segunda-feira</span>
-                        <div className="flex-1 space-y-1">
-                          <div className="inline-block bg-[#1E90FF]/15 border border-[#1E90FF]/30 text-[#60a5fa] text-[7px] font-bold px-2 py-0.5 rounded-full blur-sm">Endurance</div>
-                          <div className="h-1.5 bg-white/10 rounded-full w-36 blur-sm" />
-                          <div className="h-1.5 bg-white/15 rounded-full w-full blur-sm" />
-                        </div>
-                      </div>
-                      {/* Rest day */}
-                      <div className="px-3 py-1.5 flex items-center gap-2.5 bg-black/15">
-                        <span className="text-[8px] font-black text-[#64748b] uppercase tracking-wide w-20 shrink-0">Terça-feira</span>
-                        <span className="text-[#334155] text-[10px] italic">Descanso</span>
-                      </div>
-                      {/* Training day */}
-                      <div className="px-3 py-2 flex items-start gap-2.5">
-                        <span className="text-[8px] font-black text-[#64748b] uppercase tracking-wide w-20 shrink-0 pt-0.5">Quarta-feira</span>
-                        <div className="flex-1 space-y-1">
-                          <div className="inline-block bg-[#1E90FF]/15 border border-[#1E90FF]/30 text-[#60a5fa] text-[7px] font-bold px-2 py-0.5 rounded-full blur-sm">Força e Cadência</div>
-                          <div className="h-1.5 bg-white/10 rounded-full w-36 blur-sm" />
-                          <div className="h-1.5 bg-white/15 rounded-full w-5/6 blur-sm" />
-                        </div>
-                      </div>
-                      {/* Rest day */}
-                      <div className="px-3 py-1.5 flex items-center gap-2.5 bg-black/15">
-                        <span className="text-[8px] font-black text-[#64748b] uppercase tracking-wide w-20 shrink-0">Quinta-feira</span>
-                        <span className="text-[#334155] text-[10px] italic">Descanso</span>
-                      </div>
-                      {/* Training day */}
-                      <div className="px-3 py-2 flex items-start gap-2.5">
-                        <span className="text-[8px] font-black text-[#64748b] uppercase tracking-wide w-20 shrink-0 pt-0.5">Sexta-feira</span>
-                        <div className="flex-1 space-y-1">
-                          <div className="inline-block bg-[#1E90FF]/15 border border-[#1E90FF]/30 text-[#60a5fa] text-[7px] font-bold px-2 py-0.5 rounded-full blur-sm">Endurance</div>
-                          <div className="h-1.5 bg-white/10 rounded-full w-36 blur-sm" />
-                          <div className="h-1.5 bg-white/15 rounded-full w-full blur-sm" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            {/* Gradient fade — signals "preview" rather than blocked content */}
-            <div className="absolute bottom-0 left-0 right-0 h-28 rounded-b-xl pointer-events-none bg-gradient-to-t from-brand-navy to-transparent" />
-          </div>
-
+          <PDFMockup />
           <p className="text-center text-xs text-gray-600 mt-3">
             Exemplo do formato do PDF — o teu plano terá o teu conteúdo personalizado
           </p>
