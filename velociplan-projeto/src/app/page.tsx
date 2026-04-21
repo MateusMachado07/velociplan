@@ -251,18 +251,18 @@ function WeekCard({ semana }: { semana: MockupSemana }) {
 function PDFMockup() {
   return (
     <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 select-none">
+      {/* Static mini-header — lives outside the scroll container */}
+      <div className="bg-[#0a1520] border-b border-[#1E90FF]/25 px-5 py-2.5 flex items-center gap-3">
+        <Image src="/logo.png" alt="VelociPlan" width={90} height={27} className="opacity-90" />
+        <span className="text-[10px] text-[#60a5fa] font-semibold">
+          Plano de Treino Preparação para Prova — 12 Semanas
+        </span>
+      </div>
+
       <div
-        className="max-h-[540px] overflow-y-auto bg-[#0D1B2A]"
+        className="max-h-[500px] overflow-y-auto bg-[#0D1B2A]"
         style={{ scrollbarWidth: "thin", scrollbarColor: "#1E90FF40 #0a1520" }}
       >
-        {/* Sticky mini-header */}
-        <div className="sticky top-0 z-10 bg-[#0a1520] border-b border-[#1E90FF]/25 px-5 py-2.5 flex items-center gap-3">
-          <Image src="/logo.png" alt="VelociPlan" width={90} height={27} className="opacity-90" />
-          <span className="text-[10px] text-[#60a5fa] font-semibold">
-            Plano de Treino Preparação para Prova — 12 Semanas
-          </span>
-        </div>
-
         {/* Content */}
         <div className="px-5 py-4 space-y-4">
 
