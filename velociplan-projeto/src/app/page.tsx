@@ -399,22 +399,54 @@ const features = [
 
 const testimonials = [
   {
-    texto:
-      "Treinava há três anos sem qualquer estrutura e estava preso no mesmo nível. Preenchi o formulário com pouca esperança e o plano que recebi surpreendeu-me — tem semanas de recuperação reais, as intensidades explicadas em batimentos cardíacos, e até uma secção de nutrição que nunca tinha pensado. Seis semanas depois sinto uma diferença que não sentia há muito.",
+    texto: "Estava estagnado há três anos. O plano trouxe estrutura real com semanas de recuperação e intensidades explicadas em batimentos. Seis semanas depois já sinto a diferença.",
     nome: "Rui Fernandes",
     contexto: "Ciclista amador · Porto",
   },
   {
-    texto:
-      "Pensei que ia receber um PDF genérico igual ao que se encontra grátis na internet. Mas não — o plano era diferente, adaptado às minhas disponibilidades e ao meu nível. Aprendi o que é treinar em Zona 2 e porque é que funciona. Já pedi ao marido para fazer o dele também.",
+    texto: "Pensei que ia receber algo genérico mas era mesmo adaptado ao meu nível e às minhas disponibilidades. Aprendi o que é treinar em Zona 2. Já pedi ao marido para fazer o dele.",
     nome: "Ana Carvalho",
     contexto: "Cicloturista · Braga",
   },
   {
-    texto:
-      "Tive treinador durante dois anos mas quando o custo subiu decidi parar. Um amigo falou-me do VelociPlan e experimentei sem grande expectativa. O plano de 12 semanas tinha uma estrutura muito semelhante ao que o treinador me dava, honestamente. Fiz a época mais consistente que tenho registo.",
+    texto: "Tive treinador dois anos mas o custo já não fazia sentido. O plano tem a mesma estrutura que o treinador me dava e fiz a época mais consistente que tenho registo.",
     nome: "Gonçalo Matos",
     contexto: "Ciclista de competição · Lisboa",
+  },
+  {
+    texto: "Comprei o plano na sexta e no sábado de manhã já estava a pedalar com um objetivo claro. A diferença de treinar com propósito é enorme.",
+    nome: "Pedro Sousa",
+    contexto: "Ciclista de estrada · Coimbra",
+  },
+  {
+    texto: "Comecei a pedalar há seis meses e não sabia como progredir. O plano explica tudo desde o início. Finalmente sei o que estou a fazer quando saio de casa.",
+    nome: "Marta Lopes",
+    contexto: "Iniciante · Faro",
+  },
+  {
+    texto: "Fiz o plano de 12 semanas antes de uma granfondo e terminei muito melhor do que esperava. Já encomendei outro para a próxima época.",
+    nome: "Tiago Rodrigues",
+    contexto: "Ciclista amador com provas · Aveiro",
+  },
+  {
+    texto: "Uso o VelociPlan para a parte de ciclismo do treino de triatlo. A qualidade é igual a planos que já comprei noutros sítios por muito mais dinheiro.",
+    nome: "Catarina Silva",
+    contexto: "Triatleta · Guimarães",
+  },
+  {
+    texto: "Nunca tinha seguido um plano antes e achei que seria complicado. É muito simples de usar. Já perdi três quilos e consigo fazer as subidas que antes me matavam.",
+    nome: "João Oliveira",
+    contexto: "Ciclista de fim de semana · Setúbal",
+  },
+  {
+    texto: "Precisava de algo que se adaptasse ao meu horário com dias de descanso fixos. O formulário perguntou exatamente isso e o plano respeitou tudo.",
+    nome: "Filipa Nunes",
+    contexto: "Ciclismo de fitness · Évora",
+  },
+  {
+    texto: "Estou a pedalar há dez anos mas nunca tive um plano estruturado. Aprendi mais sobre periodização com este plano do que em todos esses anos. Vale muito mais do que os 9,99.",
+    nome: "André Costa",
+    contexto: "Ciclista experiente · Cascais",
   },
 ];
 
@@ -602,20 +634,32 @@ export default function HomePage() {
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="px-6 py-16 bg-white/[0.03]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-3">O que dizem os ciclistas</h2>
-          <p className="text-center text-gray-400 mb-12">Mais de 200 planos gerados. Aqui ficam alguns relatos.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
+      <section className="py-16 bg-white/[0.03]">
+        <div className="px-6 max-w-4xl mx-auto text-center mb-12">
+          <h2 className="text-3xl font-bold mb-3">O que dizem os ciclistas</h2>
+          <p className="text-gray-400">Mais de 200 planos gerados. Aqui ficam alguns relatos.</p>
+        </div>
+        {/* Marquee wrapper — fade edges via mask-image */}
+        <div
+          className="overflow-hidden"
+          style={{
+            WebkitMaskImage: "linear-gradient(to right, transparent, white 8%, white 92%, transparent)",
+            maskImage: "linear-gradient(to right, transparent, white 8%, white 92%, transparent)",
+          }}
+        >
+          <div
+            className="flex gap-5 animate-marquee py-2"
+            style={{ width: "max-content" }}
+          >
+            {[...testimonials, ...testimonials].map((t, i) => (
               <div
-                key={t.nome}
-                className="flex flex-col p-6 rounded-xl bg-white/5 border border-white/10"
+                key={i}
+                className="w-80 shrink-0 flex flex-col p-6 rounded-xl bg-white/5 border border-white/10"
               >
                 {/* Stars */}
                 <div className="flex gap-0.5 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-amber-400">
+                  {[...Array(5)].map((_, j) => (
+                    <svg key={j} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-amber-400">
                       <path fillRule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clipRule="evenodd" />
                     </svg>
                   ))}

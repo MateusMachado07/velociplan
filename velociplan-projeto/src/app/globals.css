@@ -30,3 +30,12 @@
     @apply bg-gradient-to-r from-brand-blue to-brand-blue-light bg-clip-text text-transparent;
   }
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 55s linear infinite;
+}
