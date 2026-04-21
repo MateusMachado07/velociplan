@@ -1,8 +1,3 @@
-node_modules/
-.next/
-.env
-.env.local
-*.pdf
 .agents/
 .claude/
 SKILL.md
