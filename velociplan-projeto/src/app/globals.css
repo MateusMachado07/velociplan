@@ -1,5 +1,5 @@
 /* @import must come before any other rules — this is a CSS requirement */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,8 +7,7 @@
 
 @layer base {
   html {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   body {
@@ -17,11 +16,8 @@
 }
 
 @layer utilities {
+  /* Gradient text utility — used for headings */
   .gradient-text {
     @apply bg-gradient-to-r from-brand-blue to-brand-blue-light bg-clip-text text-transparent;
-  }
-
-  .font-condensed {
-    font-family: 'Barlow Condensed', sans-serif;
   }
 }
