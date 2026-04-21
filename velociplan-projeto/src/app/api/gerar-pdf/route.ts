@@ -2,6 +2,8 @@
 // Verifies the Stripe payment and generates a branded PDF of the training plan.
 // Body: { session_id: string, plano: PlanoTreino }
 
+export const maxDuration = 60;
+
 import { NextRequest, NextResponse } from "next/server";
 import { getStripeClient } from "@/lib/stripe";
 import { gerarPDF } from "@/lib/pdf";
