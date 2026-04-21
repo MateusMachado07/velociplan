@@ -3,3 +3,7 @@ node_modules/
 .env
 .env.local
 *.pdf
+.agents/
+.claude/
+SKILL.md
+skills-lock.json
