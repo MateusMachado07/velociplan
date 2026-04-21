@@ -79,10 +79,10 @@ export default function PlanoPage() {
         }
       }
 
-      // 3. Call the AI generation API with a 300-second timeout
+      // 3. Call the AI generation API with a 600-second timeout
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 300_000);
+        const timeoutId = setTimeout(() => controller.abort(), 600_000);
 
         let res: Response;
         try {
