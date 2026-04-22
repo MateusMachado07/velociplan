@@ -797,8 +797,25 @@ export default function HomePage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-white/10 px-6 py-8 text-center text-gray-600 text-sm">
-        <p>© {new Date().getFullYear()} VelociPlan · Feito para ciclistas portugueses · Powered by Claude AI</p>
+      <footer className="border-t border-white/10 px-6 py-10">
+        <div className="max-w-3xl mx-auto">
+          {/* Logo + legal links */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-6">
+            <Image src="/logo.png" alt="VelociPlan" width={130} height={39} className="opacity-60" />
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
+              <Link href="/privacidade" className="hover:text-gray-300 transition-colors">Política de Privacidade</Link>
+              <Link href="/termos" className="hover:text-gray-300 transition-colors">Termos e Condições</Link>
+              <Link href="/reembolso" className="hover:text-gray-300 transition-colors">Política de Reembolso</Link>
+            </div>
+          </div>
+          {/* Copyright + support */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-white/5 text-xs text-gray-600">
+            <p>© {new Date().getFullYear()} VelociPlan · Feito para ciclistas portugueses</p>
+            <a href="mailto:suporte@velociplan.pt" className="hover:text-gray-400 transition-colors">
+              suporte@velociplan.pt
+            </a>
+          </div>
+        </div>
       </footer>
 
     </main>
