@@ -399,7 +399,7 @@ const features = [
 
 const testimonials = [
   {
-    texto: "Estava estagnado há três anos. O plano trouxe estrutura real com semanas de recuperação e intensidades explicadas em batimentos. Seis semanas depois já sinto a diferença.",
+    texto: "Seis semanas depois de começar já sinto diferença real. Era a estrutura que me faltava.",
     nome: "Rui Fernandes",
     contexto: "Ciclista amador · Porto",
   },
@@ -410,7 +410,7 @@ const testimonials = [
     estrelas: 4,
   },
   {
-    texto: "Tive treinador dois anos mas o custo já não fazia sentido. O plano tem a mesma estrutura que o treinador me dava e fiz a época mais consistente que tenho registo.",
+    texto: "Tem a mesma estrutura que o meu treinador me dava. Por uma fração do preço.",
     nome: "Gonçalo Matos",
     contexto: "Ciclista de competição · Lisboa",
   },
@@ -431,7 +431,7 @@ const testimonials = [
     estrelas: 4,
   },
   {
-    texto: "Uso o VelociPlan para a parte de ciclismo do treino de triatlo. A qualidade é igual a planos que já comprei noutros sítios por muito mais dinheiro.",
+    texto: "Uso para o ciclismo do triatlo. Qualidade igual a planos que já paguei muito mais.",
     nome: "Catarina Silva",
     contexto: "Triatleta · Guimarães",
   },
@@ -447,7 +447,7 @@ const testimonials = [
     contexto: "Ciclismo de fitness · Évora",
   },
   {
-    texto: "Estou a pedalar há dez anos mas nunca tive um plano estruturado. Aprendi mais sobre periodização com este plano do que em todos esses anos. Vale muito mais do que os 9,99.",
+    texto: "Dez anos a pedalar e aprendi mais sobre periodização aqui do que em toda a minha vida.",
     nome: "André Costa",
     contexto: "Ciclista experiente · Cascais",
   },
