@@ -510,6 +510,17 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
 
+      {/* ── Launch Offer Announcement Bar ── */}
+      <div className="bg-brand-blue/10 border-b border-brand-blue/25 px-6 py-2.5 text-center">
+        <p className="text-sm font-medium">
+          <span className="text-white font-bold">Preço de lançamento:</span>{" "}
+          <span className="text-gray-300">€9,99 em vez de</span>{" "}
+          <span className="line-through text-gray-500">€19,99</span>{" "}
+          <span className="mx-2 text-gray-600">·</span>
+          <span className="text-amber-400 font-semibold">Oferta termina a 30 de abril</span>
+        </p>
+      </div>
+
       {/* ── Navigation ── */}
       <nav className="border-b border-white/10 px-6 py-4 sticky top-0 bg-brand-navy/95 backdrop-blur-sm z-10">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
@@ -571,7 +582,10 @@ export default function HomePage() {
               <span className="text-green-400">✓</span> Vês grátis antes de pagar
             </span>
             <span className="flex items-center gap-2">
-              <span className="text-green-400">✓</span> PDF completo por €9,99
+              <span className="text-green-400">✓</span>
+              <span className="line-through text-gray-600 mr-0.5">€19,99</span>
+              <span className="text-white font-semibold">€9,99</span>
+              <span className="text-amber-400 text-xs font-medium">· só até 30 abr</span>
             </span>
           </div>
         </div>
@@ -642,6 +656,27 @@ export default function HomePage() {
             >
               Gerar o Meu Plano Grátis →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Launch Bonus Callout ── */}
+      <section className="px-6 pb-16">
+        <div className="max-w-2xl mx-auto">
+          <div className="rounded-2xl border border-amber-500/30 bg-amber-500/[0.06] p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+            <div className="text-3xl shrink-0">🎁</div>
+            <div className="flex-1">
+              <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-1">Bónus exclusivo de lançamento</p>
+              <p className="text-white font-semibold text-base">Guia de Nutrição para Ciclistas — PDF gratuito</p>
+              <p className="text-gray-400 text-sm mt-1 leading-relaxed">
+                8 páginas com estratégias de alimentação antes, durante e após o treino. Incluído grátis no teu plano{" "}
+                <span className="text-amber-400 font-medium">só durante o período de lançamento</span>.
+              </p>
+            </div>
+            <div className="shrink-0 text-center sm:text-right">
+              <p className="text-gray-500 text-xs line-through">€4,99</p>
+              <p className="text-white font-bold text-xl">Grátis</p>
+            </div>
           </div>
         </div>
       </section>
@@ -760,9 +795,14 @@ export default function HomePage() {
           <p className="text-gray-400 mb-3 text-lg">
             Preenche o formulário em 5 minutos e vê o teu plano grátis.
           </p>
-          <p className="text-gray-500 text-sm mb-8">
-            Só pagas €9,99 se quiseres descarregar o PDF completo.
-          </p>
+          {/* Price anchoring + urgency */}
+          <div className="inline-flex items-center gap-3 bg-white/5 border border-amber-500/25 rounded-xl px-5 py-3 mb-8">
+            <span className="text-gray-500 text-sm line-through">€19,99</span>
+            <span className="text-white font-bold text-xl">€9,99</span>
+            <span className="w-px h-5 bg-white/10" />
+            <span className="text-amber-400 text-sm font-medium">Termina a 30 de abril</span>
+          </div>
+          <br />
           <Link
             href="/gerar"
             className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-lg shadow-brand-blue/30"
