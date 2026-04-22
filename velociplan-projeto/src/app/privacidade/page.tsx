@@ -22,7 +22,7 @@ export default function PrivacidadePage() {
         <p className="text-gray-500 text-sm mb-10">Última atualização: abril de 2026</p>
 
         <Section title="1. Responsável pelo tratamento">
-          <p>O responsável pelo tratamento dos teus dados pessoais é o VelociPlan, contactável através do endereço <a href="mailto:mateusmmachado07@gmail.com" className="text-brand-blue hover:underline">mateusmmachado07@gmail.com</a>.</p>
+          <p>O responsável pelo tratamento dos teus dados pessoais é o <strong className="text-white">VelociPlan</strong> (NIF: 516 341 529), Portugal. Contacto: <a href="mailto:mateusmmachado07@gmail.com" className="text-brand-blue hover:underline">mateusmmachado07@gmail.com</a>.</p>
         </Section>
 
         <Section title="2. Dados recolhidos e finalidade">

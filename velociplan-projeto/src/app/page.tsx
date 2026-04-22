@@ -499,6 +499,35 @@ const jsonLdFaq = {
   })),
 };
 
+// ── Payment trust badges — used in hero and bottom CTA ───────────────────────
+function PaymentTrustBar() {
+  return (
+    <div className="flex flex-wrap justify-center items-center gap-3 mt-8">
+      {/* Stripe */}
+      <div className="flex items-center gap-1.5 border border-white/10 rounded-lg px-3 py-1.5 bg-white/[0.03]">
+        <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="#635BFF" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z" />
+        </svg>
+        <span className="text-xs text-gray-400">Powered by <span className="text-[#635BFF] font-semibold">Stripe</span></span>
+      </div>
+      {/* SSL */}
+      <div className="flex items-center gap-1.5 border border-white/10 rounded-lg px-3 py-1.5 bg-white/[0.03]">
+        <svg className="w-3.5 h-3.5 text-green-400 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+        </svg>
+        <span className="text-xs text-gray-400">Ligação <span className="text-green-400 font-medium">SSL</span> segura</span>
+      </div>
+      {/* Cards */}
+      <div className="flex items-center gap-1.5 border border-white/10 rounded-lg px-3 py-1.5 bg-white/[0.03]">
+        <svg className="w-3.5 h-3.5 text-gray-400 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 21Z" />
+        </svg>
+        <span className="text-xs text-gray-400">Visa · Mastercard · MB Way</span>
+      </div>
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-brand-navy">
@@ -590,6 +619,9 @@ export default function HomePage() {
               <span className="text-amber-400 text-xs font-medium">· oferta limitada</span>
             </span>
           </div>
+
+          {/* Payment trust badges */}
+          <PaymentTrustBar />
         </div>
       </section>
 
@@ -794,11 +826,7 @@ export default function HomePage() {
           >
             Gerar o Meu Plano Grátis →
           </Link>
-          <div className="flex flex-wrap justify-center gap-6 mt-8 text-xs text-gray-600">
-            <span>✓ Sem registo</span>
-            <span>✓ Sem subscrições</span>
-            <span>✓ Pagamento seguro via Stripe</span>
-          </div>
+          <PaymentTrustBar />
         </div>
       </section>
 
@@ -814,9 +842,13 @@ export default function HomePage() {
               <Link href="/reembolso" className="hover:text-gray-300 transition-colors">Política de Reembolso</Link>
             </div>
           </div>
-          {/* Copyright + support */}
+          {/* Legal entity + support */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-white/5 text-xs text-gray-600">
-            <p>© {new Date().getFullYear()} VelociPlan · Feito para ciclistas portugueses</p>
+            <p>
+              © {new Date().getFullYear()} VelociPlan · Portugal
+              <span className="mx-2 opacity-40">·</span>
+              NIF: <span className="text-gray-500">516 341 529</span>
+            </p>
             <a href="mailto:mateusmmachado07@gmail.com" className="hover:text-gray-400 transition-colors">
               mateusmmachado07@gmail.com
             </a>
