@@ -133,10 +133,10 @@ ESTRUTURA JSON EXACTA:
           "sessao": {
             "tipo": "<'Endurance' | 'Intervalos de Alta Intensidade' | 'Recuperação Activa' | 'Fartlek' | 'Força e Cadência' | 'Tempo (Limiar)' | 'Sprint' | 'Saída Longa'>",
             "duracao": "<duração total real da sessão, ex: '45 min', '1h 20min', '2h'>",
-            "zonaIntensidade": "<zona principal com % FCmáx ou % FTP ou RPE com descrição observável>",
-            "instrucoes": "<1-2 frases directas com séries, tempo de esforço, recuperação e cadência se relevante>",
-            "aquecimento": "<1 frase com duração e zona>",
-            "arrefecimento": "<1 frase com duração e zona>"
+            "zonaIntensidade": "<zona + RPE ou % FCmáx. Máximo 8 palavras. Ex: 'Zona 2 · RPE 4-5 · conversação fácil'>",
+            "instrucoes": "<1 frase. Máximo 20 palavras. Apenas o essencial: esforço + séries/recuperação se aplicável. Sem repetir zona ou duração.>",
+            "aquecimento": "<1 frase curta. Máximo 10 palavras. Ex: '10 min Zona 1, cadência leve.'>",
+            "arrefecimento": "<1 frase curta. Máximo 10 palavras. Ex: '5 min Zona 1, pedalada solta.'>"
           }
         }
       ]
