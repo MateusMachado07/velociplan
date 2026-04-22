@@ -671,13 +671,15 @@ export default function HomePage() {
             {features.map((f) => (
               <div
                 key={f.title}
-                className="p-4 sm:p-6 rounded-xl bg-white/5 border border-white/10 hover:border-brand-blue/50 transition-colors group"
+                className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl bg-white/5 border border-white/10 hover:border-brand-blue/50 transition-colors group"
               >
-                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-3 sm:mb-4 group-hover:bg-brand-blue/20 transition-colors">
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-brand-blue/40 bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0 group-hover:bg-brand-blue/20 transition-colors">
                   <f.Icon />
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">{f.title}</h3>
-                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{f.description}</p>
+                <div>
+                  <p className="text-white font-semibold mb-1">{f.title}</p>
+                  <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{f.description}</p>
+                </div>
               </div>
             ))}
           </div>
