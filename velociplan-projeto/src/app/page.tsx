@@ -407,6 +407,7 @@ const testimonials = [
     texto: "Pensei que ia receber algo genérico mas era mesmo adaptado ao meu nível e às minhas disponibilidades. Aprendi o que é treinar em Zona 2. Já pedi ao marido para fazer o dele.",
     nome: "Ana Carvalho",
     contexto: "Cicloturista · Braga",
+    estrelas: 4,
   },
   {
     texto: "Tive treinador dois anos mas o custo já não fazia sentido. O plano tem a mesma estrutura que o treinador me dava e fiz a época mais consistente que tenho registo.",
@@ -427,6 +428,7 @@ const testimonials = [
     texto: "Fiz o plano de 12 semanas antes de uma granfondo e terminei muito melhor do que esperava. Já encomendei outro para a próxima época.",
     nome: "Tiago Rodrigues",
     contexto: "Ciclista amador com provas · Aveiro",
+    estrelas: 4,
   },
   {
     texto: "Uso o VelociPlan para a parte de ciclismo do treino de triatlo. A qualidade é igual a planos que já comprei noutros sítios por muito mais dinheiro.",
@@ -437,6 +439,7 @@ const testimonials = [
     texto: "Nunca tinha seguido um plano antes e achei que seria complicado. É muito simples de usar. Já perdi três quilos e consigo fazer as subidas que antes me matavam.",
     nome: "João Oliveira",
     contexto: "Ciclista de fim de semana · Setúbal",
+    estrelas: 4,
   },
   {
     texto: "Precisava de algo que se adaptasse ao meu horário com dias de descanso fixos. O formulário perguntou exatamente isso e o plano respeitou tudo.",
@@ -658,7 +661,7 @@ export default function HomePage() {
               >
                 {/* Stars */}
                 <div className="flex gap-0.5 mb-4">
-                  {[...Array(5)].map((_, j) => (
+                  {[...Array(t.estrelas ?? 5)].map((_, j) => (
                     <svg key={j} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-amber-400">
                       <path fillRule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clipRule="evenodd" />
                     </svg>
