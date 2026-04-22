@@ -170,9 +170,9 @@ export default function PlanoPage() {
     return (
       <div className="min-h-screen bg-brand-navy flex flex-col">
         {/* Nav */}
-        <nav className="border-b border-white/10 px-6 py-4">
+        <nav className="border-b border-white/10 px-4 py-2">
           <div className="max-w-3xl mx-auto">
-            <Image src="/logo.png" alt="VelociPlan" width={180} height={54} />
+            <Image src="/logo.png" alt="VelociPlan" width={130} height={39} className="w-24 sm:w-32 h-auto" />
           </div>
         </nav>
 
@@ -245,9 +245,9 @@ export default function PlanoPage() {
   return (
     <div className="min-h-screen bg-brand-navy">
       {/* Nav */}
-      <nav className="border-b border-white/10 px-6 py-4 sticky top-0 bg-brand-navy/90 backdrop-blur-sm z-10">
+      <nav className="border-b border-white/10 px-4 py-2 sticky top-0 bg-brand-navy/90 backdrop-blur-sm z-10">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
-          <Image src="/logo.png" alt="VelociPlan" width={180} height={54} />
+          <Image src="/logo.png" alt="VelociPlan" width={130} height={39} className="w-24 sm:w-32 h-auto" />
           <div className="flex items-center gap-3">
             <button
               onClick={() => {

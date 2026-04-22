@@ -154,17 +154,17 @@ function SucessoContent() {
         </svg>
       </div>
 
-      <h1 className="text-3xl font-extrabold text-white mb-3">
+      <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
         Pagamento confirmado!
       </h1>
 
       {state.plano && (
-        <p className="text-gray-300 mb-2 text-lg font-medium">
+        <p className="text-gray-300 mb-2 text-base sm:text-lg font-medium">
           {state.plano.titulo}
         </p>
       )}
 
-      <p className="text-gray-400 mb-8 leading-relaxed">
+      <p className="text-sm sm:text-base text-gray-400 mb-8 leading-relaxed">
         O teu plano de treino personalizado está pronto. Clica no botão abaixo
         para descarregar o PDF completo.
       </p>
@@ -199,12 +199,12 @@ function SucessoContent() {
 export default function SucessoPage() {
   return (
     <div className="min-h-screen bg-brand-navy flex flex-col">
-      <nav className="border-b border-white/10 px-6 py-4">
+      <nav className="border-b border-white/10 px-4 py-2">
         <div className="max-w-3xl mx-auto">
-          <Image src="/logo.png" alt="VelociPlan" width={180} height={54} />
+          <Image src="/logo.png" alt="VelociPlan" width={130} height={39} className="w-24 sm:w-32 h-auto" />
         </div>
       </nav>
-      <div className="flex-1 flex items-center justify-center px-6 py-16">
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 py-10 sm:py-16">
         <Suspense
           fallback={
             <div className="text-center">

@@ -9,16 +9,16 @@ export const metadata = {
 export default function PrivacidadePage() {
   return (
     <main className="min-h-screen bg-brand-navy">
-      <nav className="border-b border-white/10 px-6 py-4">
+      <nav className="border-b border-white/10 px-4 py-2">
         <div className="max-w-3xl mx-auto">
           <Link href="/">
-            <Image src="/logo.png" alt="VelociPlan" width={160} height={48} />
+            <Image src="/logo.png" alt="VelociPlan" width={130} height={39} className="w-24 sm:w-32 h-auto" />
           </Link>
         </div>
       </nav>
 
-      <article className="px-6 py-16 max-w-2xl mx-auto prose prose-invert prose-sm">
-        <h1 className="text-3xl font-bold text-white mb-2">Política de Privacidade</h1>
+      <article className="px-4 sm:px-6 py-10 sm:py-16 max-w-2xl mx-auto prose prose-invert prose-sm">
+        <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Política de Privacidade</h1>
         <p className="text-gray-500 text-sm mb-10">Última atualização: abril de 2026</p>
 
         <Section title="1. Responsável pelo tratamento">
