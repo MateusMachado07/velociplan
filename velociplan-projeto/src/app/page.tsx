@@ -849,8 +849,8 @@ export default function HomePage() {
               <span className="mx-2 opacity-40">·</span>
               NIF: <span className="text-gray-500">516 341 529</span>
             </p>
-            <a href="mailto:mateusmmachado07@gmail.com" className="hover:text-gray-400 transition-colors">
-              mateusmmachado07@gmail.com
+            <a href="mailto:suporte@velociplan.pt" className="hover:text-gray-400 transition-colors">
+              suporte@velociplan.pt
             </a>
           </div>
         </div>

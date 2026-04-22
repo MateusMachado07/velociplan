@@ -22,7 +22,7 @@ export default function PrivacidadePage() {
         <p className="text-gray-500 text-sm mb-10">Última atualização: abril de 2026</p>
 
         <Section title="1. Responsável pelo tratamento">
-          <p>O responsável pelo tratamento dos teus dados pessoais é o <strong className="text-white">VelociPlan</strong> (NIF: 516 341 529), Portugal. Contacto: <a href="mailto:mateusmmachado07@gmail.com" className="text-brand-blue hover:underline">mateusmmachado07@gmail.com</a>.</p>
+          <p>O responsável pelo tratamento dos teus dados pessoais é o <strong className="text-white">VelociPlan</strong> (NIF: 516 341 529), Portugal. Contacto: <a href="mailto:suporte@velociplan.pt" className="text-brand-blue hover:underline">suporte@velociplan.pt</a>.</p>
         </Section>
 
         <Section title="2. Dados recolhidos e finalidade">
@@ -62,7 +62,7 @@ export default function PrivacidadePage() {
             <li>Portabilidade dos dados</li>
             <li>Apresentar reclamação à <a href="https://www.cnpd.pt" target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">CNPD</a> (Comissão Nacional de Proteção de Dados)</li>
           </ul>
-          <p>Para exercer estes direitos, contacta-nos em <a href="mailto:mateusmmachado07@gmail.com" className="text-brand-blue hover:underline">mateusmmachado07@gmail.com</a>.</p>
+          <p>Para exercer estes direitos, contacta-nos em <a href="mailto:suporte@velociplan.pt" className="text-brand-blue hover:underline">suporte@velociplan.pt</a>.</p>
         </Section>
 
         <Section title="7. Cookies">
