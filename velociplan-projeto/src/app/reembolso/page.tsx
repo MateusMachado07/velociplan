@@ -42,7 +42,7 @@ export default function ReembolsoPage() {
         </Section>
 
         <Section title="4. Como solicitar reembolso">
-          <p>Envia um email para <a href="mailto:suporte@velociplan.pt" className="text-brand-blue hover:underline">suporte@velociplan.pt</a> com:</p>
+          <p>Envia um email para <a href="mailto:mateusmmachado07@gmail.com" className="text-brand-blue hover:underline">mateusmmachado07@gmail.com</a> com:</p>
           <ul>
             <li>O email utilizado no pagamento</li>
             <li>A data da compra</li>
@@ -52,7 +52,7 @@ export default function ReembolsoPage() {
         </Section>
 
         <Section title="5. Contacto">
-          <p>Para qualquer questão sobre reembolsos: <a href="mailto:suporte@velociplan.pt" className="text-brand-blue hover:underline">suporte@velociplan.pt</a>.</p>
+          <p>Para qualquer questão sobre reembolsos: <a href="mailto:mateusmmachado07@gmail.com" className="text-brand-blue hover:underline">mateusmmachado07@gmail.com</a>.</p>
         </Section>
       </article>
 

@@ -811,8 +811,8 @@ export default function HomePage() {
           {/* Copyright + support */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-white/5 text-xs text-gray-600">
             <p>© {new Date().getFullYear()} VelociPlan · Feito para ciclistas portugueses</p>
-            <a href="mailto:suporte@velociplan.pt" className="hover:text-gray-400 transition-colors">
-              suporte@velociplan.pt
+            <a href="mailto:mateusmmachado07@gmail.com" className="hover:text-gray-400 transition-colors">
+              mateusmmachado07@gmail.com
             </a>
           </div>
         </div>

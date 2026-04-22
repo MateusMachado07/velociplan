@@ -59,7 +59,7 @@ export default function TermosPage() {
         </Section>
 
         <Section title="10. Contacto">
-          <p>Para questões relacionadas com estes termos, contacta <a href="mailto:suporte@velociplan.pt" className="text-brand-blue hover:underline">suporte@velociplan.pt</a>.</p>
+          <p>Para questões relacionadas com estes termos, contacta <a href="mailto:mateusmmachado07@gmail.com" className="text-brand-blue hover:underline">mateusmmachado07@gmail.com</a>.</p>
         </Section>
       </article>
 
