@@ -589,7 +589,7 @@ export default function HomePage() {
             {" "}pronto em segundos
           </h1>
 
-          <p className="text-base sm:text-xl text-gray-300 mb-8 sm:mb-10 leading-relaxed">
+          <p className="text-sm sm:text-xl text-gray-300 mb-8 sm:mb-10 leading-relaxed">
             Preenches um formulário de 5 minutos. A IA analisa o teu perfil e
             cria um plano completo — semana a semana, com intensidades,
             aquecimentos e nutrição. Vês grátis. Pagas só para descarregar o PDF.
