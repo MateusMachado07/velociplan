@@ -34,13 +34,12 @@ export default function CountdownTimer({ variant = "inline" }: { variant?: "inli
   if (variant === "inline") {
     return (
       <span className="font-mono font-bold text-amber-400 tabular-nums">
-        {t.days}d {pad(t.hours)}:{pad(t.minutes)}:{pad(t.seconds)}
+        {pad(t.hours)}:{pad(t.minutes)}:{pad(t.seconds)}
       </span>
     );
   }
 
   const units = [
-    { label: "DIAS",  value: t.days },
     { label: "HORAS", value: t.hours },
     { label: "MIN",   value: t.minutes },
     { label: "SEG",   value: t.seconds },
