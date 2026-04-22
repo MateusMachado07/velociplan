@@ -214,9 +214,9 @@ const SEMANAS_DATA: MockupSemana[] = [
 function WeekCard({ semana }: { semana: MockupSemana }) {
   return (
     <div className="rounded-lg overflow-hidden border border-white/[0.08]">
-      <div className="bg-[#1E90FF]/15 border-b border-[#1E90FF]/25 px-3 py-2 flex items-center justify-between">
-        <span className="text-white text-xs font-black">{semana.titulo}</span>
-        <span className="text-[#60a5fa] text-[8px] font-bold uppercase tracking-wide">{semana.fase}</span>
+      <div className="bg-[#1E90FF]/15 border-b border-[#1E90FF]/25 px-3 py-2 flex items-baseline gap-2">
+        <span className="text-white text-xs font-black shrink-0">{semana.titulo}</span>
+        <span className="text-[#60a5fa] text-[8px] font-bold uppercase tracking-wide leading-tight">{semana.fase}</span>
       </div>
       <div className="divide-y divide-white/[0.05]">
         {semana.sessoes.map((sessao) =>
@@ -254,8 +254,8 @@ function PDFMockup() {
     <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 select-none">
       {/* Static mini-header — lives outside the scroll container */}
       <div className="bg-[#0a1520] border-b border-[#1E90FF]/25 px-5 py-2.5 flex items-center gap-3">
-        <Image src="/logo.png" alt="VelociPlan" width={90} height={27} className="opacity-90" />
-        <span className="text-[10px] text-[#60a5fa] font-semibold">
+        <Image src="/logo.png" alt="VelociPlan" width={90} height={27} className="opacity-90 shrink-0" />
+        <span className="text-[10px] text-[#60a5fa] font-semibold min-w-0 leading-tight">
           Plano de Treino Preparação para Prova — 12 Semanas
         </span>
       </div>
