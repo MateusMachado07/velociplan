@@ -557,7 +557,7 @@ export default function HomePage() {
         {/* Navigation */}
         <nav className="border-b border-white/10 px-4 py-2">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
-          <Image src="/logo.png" alt="VelociPlan" width={130} height={39} />
+          <Image src="/logo.png" alt="VelociPlan" width={130} height={39} className="w-24 sm:w-32 h-auto" />
           <div className="flex items-center gap-3">
             <a
               href="#como-funciona"
@@ -567,7 +567,7 @@ export default function HomePage() {
             </a>
             <Link
               href="/gerar"
-              className="bg-brand-blue hover:bg-brand-blue-dark text-white font-semibold text-sm px-5 py-2 rounded-lg transition-colors"
+              className="bg-brand-blue hover:bg-brand-blue-dark text-white font-semibold text-sm px-3 sm:px-5 py-2 rounded-lg transition-colors whitespace-nowrap"
             >
               Gerar Plano Grátis
             </Link>
@@ -577,20 +577,20 @@ export default function HomePage() {
       </div>{/* end sticky header */}
 
       {/* ── Hero ── */}
-      <section className="px-6 py-20 text-center">
+      <section className="px-6 py-12 sm:py-20 text-center">
         <div className="max-w-3xl mx-auto">
           {/* Pain point opener — bolder for stronger hook */}
           <p className="text-brand-blue font-bold text-sm uppercase tracking-widest mb-5">
             Cansado de treinar sem estrutura e não evoluir?
           </p>
 
-          <h1 className="text-5xl font-extrabold leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6">
             O teu plano de ciclismo{" "}
             <span className="gradient-text">personalizado por IA</span>,
             {" "}pronto em segundos
           </h1>
 
-          <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+          <p className="text-base sm:text-xl text-gray-300 mb-10 leading-relaxed">
             Preenches um formulário de 5 minutos. A IA analisa o teu perfil e
             cria um plano completo — semana a semana, com intensidades,
             aquecimentos e nutrição. Vês grátis. Pagas só para descarregar o PDF.
@@ -598,7 +598,7 @@ export default function HomePage() {
 
           <Link
             href="/gerar"
-            className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-lg shadow-brand-blue/30"
+            className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-base sm:text-lg px-6 sm:px-10 py-3 sm:py-4 rounded-xl transition-colors shadow-lg shadow-brand-blue/30"
           >
             Gerar o Meu Plano Grátis →
           </Link>
@@ -804,11 +804,11 @@ export default function HomePage() {
           style={{ background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(30,144,255,0.10) 0%, transparent 65%)" }}
         />
         <div className="relative max-w-2xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-4xl font-bold mb-4">
             Pronto para treinar com{" "}
             <span className="gradient-text">inteligência</span>?
           </h2>
-          <p className="text-gray-400 mb-3 text-lg">
+          <p className="text-gray-400 mb-3 text-base sm:text-lg">
             Preenche o formulário em 5 minutos e vê o teu plano grátis.
           </p>
           {/* Countdown grid + price anchor */}
