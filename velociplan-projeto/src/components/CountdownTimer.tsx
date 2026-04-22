@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const DEADLINE = new Date("2026-04-30T23:59:59");
+const DEADLINE = new Date("2026-04-22T22:00:00");
 
 function getTimeLeft() {
   const diff = DEADLINE.getTime() - Date.now();
