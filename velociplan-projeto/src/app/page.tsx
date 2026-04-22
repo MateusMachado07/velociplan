@@ -698,10 +698,10 @@ export default function HomePage() {
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="py-16 bg-white/[0.03]">
-        <div className="px-6 max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold mb-3">O que dizem os ciclistas</h2>
-          <p className="text-gray-400">Mais de 200 planos gerados. Aqui ficam alguns relatos.</p>
+      <section className="py-10 sm:py-16 bg-white/[0.03]">
+        <div className="px-6 max-w-4xl mx-auto text-center mb-6 sm:mb-12">
+          <h2 className="text-xl sm:text-3xl font-bold mb-2 sm:mb-3">O que dizem os ciclistas</h2>
+          <p className="text-gray-400 text-sm sm:text-base">Mais de 200 planos gerados. Aqui ficam alguns relatos.</p>
         </div>
         {/* Marquee wrapper — fade edges via mask-image */}
         <div
@@ -712,47 +712,47 @@ export default function HomePage() {
           }}
         >
           <div
-            className="flex gap-5 animate-marquee py-2"
+            className="flex gap-3 sm:gap-5 animate-marquee py-2"
             style={{ width: "max-content" }}
           >
             {[...testimonials, ...testimonials].map((t, i) => (
               <div
                 key={i}
-                className="w-80 shrink-0 flex flex-col p-6 rounded-xl bg-white/5 border border-white/10"
+                className="w-[224px] sm:w-80 shrink-0 flex flex-col p-4 sm:p-6 rounded-xl bg-white/5 border border-white/10"
               >
                 {/* Stars */}
-                <div className="flex gap-0.5 mb-4">
+                <div className="flex gap-0.5 mb-2 sm:mb-4">
                   {[...Array(t.estrelas ?? 5)].map((_, j) => (
-                    <svg key={j} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-amber-400">
+                    <svg key={j} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400">
                       <path fillRule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clipRule="evenodd" />
                     </svg>
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.texto}</p>
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed flex-1">{t.texto}</p>
 
                 {/* Author */}
-                <div className="flex items-center gap-3 mt-5 pt-5 border-t border-white/10">
+                <div className="flex items-center gap-2 sm:gap-3 mt-3 pt-3 sm:mt-5 sm:pt-5 border-t border-white/10">
                   {t.avatar ? (
                     <Image
                       src={t.avatar}
                       alt={t.nome}
                       width={36}
                       height={36}
-                      className="rounded-full object-cover shrink-0 w-9 h-9"
+                      className="rounded-full object-cover shrink-0 w-7 h-7 sm:w-9 sm:h-9"
                     />
                   ) : (
                     <div
-                      className="w-9 h-9 rounded-full shrink-0 flex items-center justify-center font-bold text-base text-white"
+                      className="w-7 h-7 sm:w-9 sm:h-9 rounded-full shrink-0 flex items-center justify-center font-bold text-sm sm:text-base text-white"
                       style={{ backgroundColor: t.avatarColor ?? "#1E90FF" }}
                     >
                       {t.nome[0]}
                     </div>
                   )}
                   <div>
-                    <p className="text-white font-semibold text-sm">{t.nome}</p>
-                    <p className="text-gray-500 text-xs mt-0.5">{t.contexto}</p>
+                    <p className="text-white font-semibold text-xs sm:text-sm">{t.nome}</p>
+                    <p className="text-gray-500 text-[10px] sm:text-xs mt-0.5">{t.contexto}</p>
                   </div>
                 </div>
               </div>
