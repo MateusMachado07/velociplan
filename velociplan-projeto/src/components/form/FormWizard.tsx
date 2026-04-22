@@ -759,7 +759,7 @@ export default function FormWizard() {
               onClick={handleNext}
               className="flex-1 py-3 px-6 rounded-xl bg-brand-blue hover:bg-brand-blue-dark text-white font-bold transition-colors shadow-lg shadow-brand-blue/20"
             >
-              {step === TOTAL_STEPS ? "Gerar o Meu Plano →" : "Próximo →"}
+              {step === TOTAL_STEPS ? "Gerar o Meu Plano" : "Próximo →"}
             </button>
           </div>
         </div>
