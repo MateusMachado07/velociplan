@@ -38,7 +38,7 @@ function SucessoContent() {
       .then((data: { paid: boolean; error?: string }) => {
         if (data.paid) {
           // Read the plan from sessionStorage (stored during AI generation)
-          const stored = sessionStorage.getItem("velociplan_plano");
+          const stored = localStorage.getItem("velociplan_plano");
           const plano = stored ? (JSON.parse(stored) as PlanoTreino) : null;
           setState({ status: "paid", plano });
         } else {

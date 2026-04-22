@@ -67,7 +67,7 @@ export default function PlanoPage() {
       }
 
       // 2. Check if we already have a cached plan from a previous generation
-      const cachedPlan = sessionStorage.getItem("velociplan_plano");
+      const cachedPlan = localStorage.getItem("velociplan_plano");
       if (cachedPlan) {
         try {
           const plano = JSON.parse(cachedPlan) as PlanoTreino;
@@ -75,7 +75,7 @@ export default function PlanoPage() {
           return;
         } catch {
           // Cached plan is corrupt — regenerate
-          sessionStorage.removeItem("velociplan_plano");
+          localStorage.removeItem("velociplan_plano");
         }
       }
 
@@ -117,8 +117,8 @@ export default function PlanoPage() {
 
         const plano = data.plano as PlanoTreino;
 
-        // Cache the plan so a page refresh doesn't re-call the AI
-        sessionStorage.setItem("velociplan_plano", JSON.stringify(plano));
+        // Cache the plan so a page refresh / Stripe redirect doesn't re-call the AI
+        localStorage.setItem("velociplan_plano", JSON.stringify(plano));
 
         setState({ status: "success", plano });
       } catch (err: unknown) {
@@ -220,7 +220,7 @@ export default function PlanoPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => {
-                sessionStorage.removeItem("velociplan_plano");
+                localStorage.removeItem("velociplan_plano");
                 hasCalled.current = false;
                 setState({ status: "loading" });
                 setAttempt((n) => n + 1);
@@ -263,7 +263,7 @@ export default function PlanoPage() {
         <button
           onClick={() => {
             sessionStorage.removeItem("velociplan_form");
-            sessionStorage.removeItem("velociplan_plano");
+            localStorage.removeItem("velociplan_plano");
             router.push("/gerar");
           }}
           className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
