@@ -540,20 +540,22 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
 
-      {/* ── Launch Offer Announcement Bar ── */}
-      <div className="bg-brand-blue/10 border-b border-brand-blue/25 px-4 py-2.5 text-center">
-        <p className="text-sm font-medium flex items-center justify-center gap-2 flex-wrap">
-          <span className="text-amber-400">⏱</span>
-          <span className="text-gray-300">Preço de lançamento termina em</span>
-          <CountdownTimer variant="inline" />
-          <span className="text-gray-600 hidden sm:inline">·</span>
-          <span className="text-white font-bold">€9,99</span>
-          <span className="line-through text-gray-500 text-xs">€19,99</span>
-        </p>
-      </div>
+      {/* ── Sticky header: announcement bar + nav ── */}
+      <div className="sticky top-0 z-20 bg-brand-navy/95 backdrop-blur-sm">
+        {/* Launch Offer Announcement Bar */}
+        <div className="bg-brand-blue/10 border-b border-brand-blue/25 px-4 py-2.5 text-center">
+          <p className="text-sm font-medium flex items-center justify-center gap-2 flex-wrap">
+            <span className="text-amber-400">⏱</span>
+            <span className="text-gray-300">Preço de lançamento termina em</span>
+            <CountdownTimer variant="inline" />
+            <span className="text-gray-600 hidden sm:inline">·</span>
+            <span className="text-white font-bold">€9,99</span>
+            <span className="line-through text-gray-500 text-xs">€19,99</span>
+          </p>
+        </div>
 
-      {/* ── Navigation ── */}
-      <nav className="border-b border-white/10 px-6 py-4 sticky top-0 bg-brand-navy/95 backdrop-blur-sm z-10">
+        {/* Navigation */}
+        <nav className="border-b border-white/10 px-6 py-4">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Image src="/logo.png" alt="VelociPlan" width={200} height={60} />
           <div className="flex items-center gap-3">
@@ -572,6 +574,7 @@ export default function HomePage() {
           </div>
         </div>
       </nav>
+      </div>{/* end sticky header */}
 
       {/* ── Hero ── */}
       <section className="px-6 py-20 text-center">
