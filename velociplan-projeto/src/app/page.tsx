@@ -555,9 +555,9 @@ export default function HomePage() {
         </div>
 
         {/* Navigation */}
-        <nav className="border-b border-white/10 px-6 py-4">
+        <nav className="border-b border-white/10 px-4 py-2">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
-          <Image src="/logo.png" alt="VelociPlan" width={200} height={60} />
+          <Image src="/logo.png" alt="VelociPlan" width={130} height={39} />
           <div className="flex items-center gap-3">
             <a
               href="#como-funciona"
