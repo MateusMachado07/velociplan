@@ -402,54 +402,64 @@ const testimonials = [
     texto: "Seis semanas depois de começar já sinto diferença real. Era a estrutura que me faltava.",
     nome: "Rui Fernandes",
     contexto: "Ciclista amador · Porto",
+    avatar: "/avatars/rui.jpg",
   },
   {
     texto: "Pensei que ia receber algo genérico mas era mesmo adaptado ao meu nível e às minhas disponibilidades. Aprendi o que é treinar em Zona 2. Já pedi ao marido para fazer o dele.",
     nome: "Ana Carvalho",
     contexto: "Cicloturista · Braga",
     estrelas: 4,
+    avatar: "/avatars/ana.jpg",
   },
   {
     texto: "Tem a mesma estrutura que o meu treinador me dava. Por uma fração do preço.",
     nome: "Gonçalo Matos",
     contexto: "Ciclista de competição · Lisboa",
+    avatar: "/avatars/goncalo.jpg",
   },
   {
     texto: "Comprei o plano na sexta e no sábado de manhã já estava a pedalar com um objetivo claro. A diferença de treinar com propósito é enorme.",
     nome: "Pedro Sousa",
     contexto: "Ciclista de estrada · Coimbra",
+    avatar: "/avatars/pedro.jpg",
   },
   {
     texto: "Comecei a pedalar há seis meses e não sabia como progredir. O plano explica tudo desde o início. Finalmente sei o que estou a fazer quando saio de casa.",
     nome: "Marta Lopes",
     contexto: "Iniciante · Faro",
+    avatar: "/avatars/marta.jpg",
   },
   {
     texto: "Fiz o plano de 12 semanas antes de uma granfondo e terminei muito melhor do que esperava. Já encomendei outro para a próxima época.",
     nome: "Tiago Rodrigues",
     contexto: "Ciclista amador com provas · Aveiro",
     estrelas: 4,
+    avatar: "/avatars/tiago.jpg",
   },
   {
     texto: "Uso para o ciclismo do triatlo. Qualidade igual a planos que já paguei muito mais.",
     nome: "Catarina Silva",
     contexto: "Triatleta · Guimarães",
+    avatar: "/avatars/catarina.jpg",
   },
   {
     texto: "Nunca tinha seguido um plano antes e achei que seria complicado. É muito simples de usar. Já perdi três quilos e consigo fazer as subidas que antes me matavam.",
     nome: "João Oliveira",
     contexto: "Ciclista de fim de semana · Setúbal",
     estrelas: 4,
+    avatarColor: "#1E5FAA",
   },
   {
     texto: "Precisava de algo que se adaptasse ao meu horário com dias de descanso fixos. O formulário perguntou exatamente isso e o plano respeitou tudo.",
     nome: "Filipa Nunes",
     contexto: "Ciclismo de fitness · Évora",
+    avatar: "/avatars/filipa.jpg",
   },
   {
     texto: "Dez anos a pedalar e aprendi mais sobre periodização aqui do que em toda a minha vida.",
     nome: "André Costa",
     contexto: "Ciclista experiente · Cascais",
+    avatarColor: "#166534",
   },
 ];
 
@@ -672,9 +682,27 @@ export default function HomePage() {
                 <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.texto}</p>
 
                 {/* Author */}
-                <div className="mt-5 pt-5 border-t border-white/10">
-                  <p className="text-white font-semibold text-sm">{t.nome}</p>
-                  <p className="text-gray-500 text-xs mt-0.5">{t.contexto}</p>
+                <div className="flex items-center gap-3 mt-5 pt-5 border-t border-white/10">
+                  {t.avatar ? (
+                    <Image
+                      src={t.avatar}
+                      alt={t.nome}
+                      width={36}
+                      height={36}
+                      className="rounded-full object-cover shrink-0 w-9 h-9"
+                    />
+                  ) : (
+                    <div
+                      className="w-9 h-9 rounded-full shrink-0 flex items-center justify-center font-bold text-base text-white"
+                      style={{ backgroundColor: t.avatarColor ?? "#1E90FF" }}
+                    >
+                      {t.nome[0]}
+                    </div>
+                  )}
+                  <div>
+                    <p className="text-white font-semibold text-sm">{t.nome}</p>
+                    <p className="text-gray-500 text-xs mt-0.5">{t.contexto}</p>
+                  </div>
                 </div>
               </div>
             ))}
