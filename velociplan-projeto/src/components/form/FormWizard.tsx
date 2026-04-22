@@ -78,17 +78,19 @@ function SelectionCard({
       type="button"
       onClick={onClick}
       className={cn(
-        "w-full text-left p-3 sm:p-4 rounded-xl border-2 transition-all",
+        "w-full text-left p-3 rounded-xl border-2 transition-all flex items-start gap-3",
         selected
           ? "border-brand-blue bg-brand-blue/10"
           : "border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10"
       )}
     >
-      {icon && <span className="text-xl sm:text-2xl mb-1.5 block">{icon}</span>}
-      <p className="font-semibold text-white text-sm sm:text-base">{label}</p>
-      {description && (
-        <p className="text-xs sm:text-sm text-gray-400 mt-0.5 leading-snug">{description}</p>
-      )}
+      {icon && <span className="text-xl shrink-0 mt-0.5">{icon}</span>}
+      <div>
+        <p className="font-semibold text-white text-sm">{label}</p>
+        {description && (
+          <p className="text-xs text-gray-400 mt-0.5 leading-snug">{description}</p>
+        )}
+      </div>
     </button>
   );
 }
