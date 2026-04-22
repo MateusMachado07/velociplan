@@ -81,11 +81,11 @@ function DayRow({ dia }: { dia: DiaTreino }) {
 function WeekBlock({ semana }: { semana: SemanaTreino }) {
   return (
     <div className="rounded-lg overflow-hidden border border-white/[0.08] mb-2.5">
-      <div className="bg-[#1E90FF]/[0.15] border-b border-[#1E90FF]/25 px-3.5 py-[9px] flex justify-between items-center">
-        <span className="text-[13px] font-black text-white">
+      <div className="bg-[#1E90FF]/[0.15] border-b border-[#1E90FF]/25 px-3.5 py-[9px] flex items-center gap-2 min-w-0">
+        <span className="text-[13px] font-black text-white whitespace-nowrap shrink-0">
           Semana {semana.semana}
         </span>
-        <span className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-[0.5px]">
+        <span className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-[0.5px] truncate min-w-0">
           {semana.foco}
         </span>
       </div>
@@ -223,33 +223,29 @@ export default function PlanPreview({
 
           {/* Lock overlay — payment CTA */}
           <div className="absolute inset-x-0 top-16 flex flex-col items-center px-4">
-            <div className="bg-[#0a1520] border border-white/10 rounded-2xl p-8 text-center max-w-sm w-full shadow-2xl shadow-black/50">
-              <div className="text-4xl mb-3">🔒</div>
-              <h3 className="text-xl font-bold text-white mb-2">
+            <div className="bg-[#0a1520] border border-white/10 rounded-xl p-4 text-center max-w-xs w-full shadow-2xl shadow-black/50">
+              <div className="text-2xl mb-1.5">🔒</div>
+              <h3 className="text-sm font-bold text-white mb-1">
                 O plano continua aqui
               </h3>
-              <p className="text-gray-400 text-sm mb-1">
-                {hiddenWeeks.length} semana{hiddenWeeks.length !== 1 ? "s" : ""}{" "}
-                de treino · nutrição · recuperação
-              </p>
-              <p className="text-gray-400 text-sm mb-6">
-                PDF profissional para descarregar e guardar
+              <p className="text-gray-400 text-xs mb-3">
+                {hiddenWeeks.length} semana{hiddenWeeks.length !== 1 ? "s" : ""} de treino · nutrição · recuperação · PDF profissional
               </p>
               <button
                 onClick={onPagar}
                 disabled={pagando}
-                className="w-full bg-[#1E90FF] hover:bg-[#1565C0] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-lg shadow-[#1E90FF]/30 text-lg"
+                className="w-full bg-[#1E90FF] hover:bg-[#1565C0] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-2.5 px-4 rounded-lg transition-colors shadow-lg shadow-[#1E90FF]/30 text-sm"
               >
                 {pagando ? "A processar..." : "Descarregar PDF Completo — €9,99"}
               </button>
-              <p className="text-gray-600 text-xs mt-3">
+              <p className="text-gray-600 text-[10px] mt-2">
                 Pagamento seguro via Stripe · PDF entregue imediatamente
               </p>
             </div>
           </div>
 
           {/* Spacer so CTA doesn't overlap footer */}
-          <div className="h-80" />
+          <div className="h-56" />
         </div>
       )}
 

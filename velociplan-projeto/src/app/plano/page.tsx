@@ -248,27 +248,29 @@ export default function PlanoPage() {
       <nav className="border-b border-white/10 px-4 py-2 sticky top-0 bg-brand-navy/90 backdrop-blur-sm z-10">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Image src="/logo.png" alt="VelociPlan" width={130} height={39} className="w-24 sm:w-32 h-auto" />
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => {
-                sessionStorage.removeItem("velociplan_form");
-                sessionStorage.removeItem("velociplan_plano");
-                router.push("/gerar");
-              }}
-              className="text-sm text-gray-400 hover:text-white transition-colors"
-            >
-              Novo Plano
-            </button>
-            <button
-              onClick={handlePagar}
-              disabled={pagando}
-              className="bg-brand-blue hover:bg-brand-blue-dark disabled:opacity-60 text-white font-bold text-sm px-4 py-2 rounded-lg transition-colors"
-            >
-              {pagando ? "A redirecionar..." : "Descarregar PDF — €9,99"}
-            </button>
-          </div>
+          <button
+            onClick={handlePagar}
+            disabled={pagando}
+            className="bg-brand-blue hover:bg-brand-blue-dark disabled:opacity-60 text-white font-bold text-sm px-4 py-2 rounded-lg transition-colors"
+          >
+            {pagando ? "A redirecionar..." : "Descarregar PDF — €9,99"}
+          </button>
         </div>
       </nav>
+
+      {/* "Novo Plano" link — below the sticky header */}
+      <div className="text-center py-2 border-b border-white/5">
+        <button
+          onClick={() => {
+            sessionStorage.removeItem("velociplan_form");
+            sessionStorage.removeItem("velociplan_plano");
+            router.push("/gerar");
+          }}
+          className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+        >
+          ← Novo Plano
+        </button>
+      </div>
 
       {/* Plan preview */}
       <PlanPreview plano={state.plano} onPagar={handlePagar} pagando={pagando} />
