@@ -251,7 +251,7 @@ export default function PlanoPage() {
           <button
             onClick={handlePagar}
             disabled={pagando}
-            className="bg-brand-blue hover:bg-brand-blue-dark disabled:opacity-60 text-white font-bold text-sm px-4 py-2 rounded-lg transition-colors"
+            className="bg-brand-blue hover:bg-brand-blue-dark disabled:opacity-60 text-white font-semibold text-xs px-3 py-1.5 rounded-md transition-colors"
           >
             {pagando ? "A redirecionar..." : "Descarregar PDF — €9,99"}
           </button>
