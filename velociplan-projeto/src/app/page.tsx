@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import CountdownTimer from "@/components/CountdownTimer";
 
 // ── SVG Icon components (Heroicons v2 outline) ────────────────────────────────
 function IconCpu() {
@@ -511,13 +512,14 @@ export default function HomePage() {
       />
 
       {/* ── Launch Offer Announcement Bar ── */}
-      <div className="bg-brand-blue/10 border-b border-brand-blue/25 px-6 py-2.5 text-center">
-        <p className="text-sm font-medium">
-          <span className="text-white font-bold">Preço de lançamento:</span>{" "}
-          <span className="text-gray-300">€9,99 em vez de</span>{" "}
-          <span className="line-through text-gray-500">€19,99</span>{" "}
-          <span className="mx-2 text-gray-600">·</span>
-          <span className="text-amber-400 font-semibold">Oferta termina a 30 de abril</span>
+      <div className="bg-brand-blue/10 border-b border-brand-blue/25 px-4 py-2.5 text-center">
+        <p className="text-sm font-medium flex items-center justify-center gap-2 flex-wrap">
+          <span className="text-amber-400">⏱</span>
+          <span className="text-gray-300">Preço de lançamento termina em</span>
+          <CountdownTimer variant="inline" />
+          <span className="text-gray-600 hidden sm:inline">·</span>
+          <span className="text-white font-bold">€9,99</span>
+          <span className="line-through text-gray-500 text-xs">€19,99</span>
         </p>
       </div>
 
@@ -585,7 +587,7 @@ export default function HomePage() {
               <span className="text-green-400">✓</span>
               <span className="line-through text-gray-600 mr-0.5">€19,99</span>
               <span className="text-white font-semibold">€9,99</span>
-              <span className="text-amber-400 text-xs font-medium">· só até 30 abr</span>
+              <span className="text-amber-400 text-xs font-medium">· oferta limitada</span>
             </span>
           </div>
         </div>
@@ -774,12 +776,16 @@ export default function HomePage() {
           <p className="text-gray-400 mb-3 text-lg">
             Preenche o formulário em 5 minutos e vê o teu plano grátis.
           </p>
-          {/* Price anchoring + urgency */}
-          <div className="inline-flex items-center gap-3 bg-white/5 border border-amber-500/25 rounded-xl px-5 py-3 mb-8">
+          {/* Countdown grid + price anchor */}
+          <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-4">
+            O preço sobe em
+          </p>
+          <CountdownTimer variant="grid" />
+          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-3 mt-6 mb-8">
             <span className="text-gray-500 text-sm line-through">€19,99</span>
             <span className="text-white font-bold text-xl">€9,99</span>
             <span className="w-px h-5 bg-white/10" />
-            <span className="text-amber-400 text-sm font-medium">Termina a 30 de abril</span>
+            <span className="text-gray-400 text-sm">pagamento único · PDF para sempre</span>
           </div>
           <br />
           <Link
