@@ -78,16 +78,16 @@ function SelectionCard({
       type="button"
       onClick={onClick}
       className={cn(
-        "w-full text-left p-4 rounded-xl border-2 transition-all",
+        "w-full text-left p-3 sm:p-4 rounded-xl border-2 transition-all",
         selected
           ? "border-brand-blue bg-brand-blue/10"
           : "border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10"
       )}
     >
-      {icon && <span className="text-2xl mb-2 block">{icon}</span>}
-      <p className="font-semibold text-white">{label}</p>
+      {icon && <span className="text-xl sm:text-2xl mb-1.5 block">{icon}</span>}
+      <p className="font-semibold text-white text-sm sm:text-base">{label}</p>
       {description && (
-        <p className="text-sm text-gray-400 mt-1 leading-snug">{description}</p>
+        <p className="text-xs sm:text-sm text-gray-400 mt-0.5 leading-snug">{description}</p>
       )}
     </button>
   );
@@ -232,7 +232,7 @@ function StepDias({
               type="button"
               onClick={() => toggleDia(d.value)}
               className={cn(
-                "w-14 h-14 rounded-xl font-semibold text-sm border-2 transition-all",
+                "w-11 h-11 sm:w-14 sm:h-14 rounded-xl font-semibold text-xs sm:text-sm border-2 transition-all",
                 selected
                   ? "bg-brand-blue border-brand-blue text-white"
                   : "bg-white/5 border-white/10 text-gray-300 hover:border-white/30"
@@ -394,16 +394,16 @@ function StepEquipamento({ data, setData }: StepProps) {
             type="button"
             onClick={() => toggle(item.key)}
             className={cn(
-              "flex items-center gap-4 p-4 rounded-xl border-2 transition-all text-left",
+              "flex items-center gap-3 p-3 sm:p-4 rounded-xl border-2 transition-all text-left",
               data.equipamento[item.key]
                 ? "border-brand-blue bg-brand-blue/10"
                 : "border-white/10 bg-white/5 hover:border-white/30"
             )}
           >
-            <span className="text-2xl">{item.icon}</span>
+            <span className="text-xl sm:text-2xl">{item.icon}</span>
             <div className="flex-1">
-              <p className="font-semibold text-white">{item.label}</p>
-              <p className="text-sm text-gray-400">{item.description}</p>
+              <p className="font-semibold text-white text-sm sm:text-base">{item.label}</p>
+              <p className="text-xs sm:text-sm text-gray-400">{item.description}</p>
             </div>
             {/* Checkmark circle */}
             <div
@@ -681,10 +681,10 @@ export default function FormWizard() {
   return (
     <div className="min-h-screen bg-brand-navy flex flex-col">
       {/* ── Top navigation ── */}
-      <nav className="border-b border-white/10 px-6 py-4 flex-shrink-0">
+      <nav className="border-b border-white/10 px-4 py-2 flex-shrink-0">
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Image src="/logo.png" alt="VelociPlan" width={180} height={54} />
-          <span className="text-sm text-gray-400">
+          <Image src="/logo.png" alt="VelociPlan" width={130} height={39} className="w-24 sm:w-32 h-auto" />
+          <span className="text-xs sm:text-sm text-gray-400">
             Passo {step} de {TOTAL_STEPS}
           </span>
         </div>
@@ -699,7 +699,7 @@ export default function FormWizard() {
       </div>
 
       {/* ── Main content ── */}
-      <main className="flex-1 flex flex-col items-center px-6 py-10">
+      <main className="flex-1 flex flex-col items-center px-4 sm:px-6 py-6 sm:py-10">
         <div className="w-full max-w-2xl">
           {/* Step label */}
           <p className="text-brand-blue text-xs font-bold mb-2 uppercase tracking-widest">
@@ -707,7 +707,7 @@ export default function FormWizard() {
           </p>
 
           {/* Step heading */}
-          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+          <h1 className="text-xl sm:text-3xl font-bold text-white mb-5 sm:mb-8">
             {STEP_TITLES[step - 1]}
           </h1>
 
