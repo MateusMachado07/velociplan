@@ -502,27 +502,27 @@ const jsonLdFaq = {
 // ── Payment trust badges — used in hero and bottom CTA ───────────────────────
 function PaymentTrustBar() {
   return (
-    <div className="flex flex-wrap justify-center items-center gap-3 mt-8">
+    <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mt-6 sm:mt-8">
       {/* Stripe */}
-      <div className="flex items-center gap-1.5 border border-white/10 rounded-lg px-3 py-1.5 bg-white/[0.03]">
-        <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="#635BFF" xmlns="http://www.w3.org/2000/svg">
+      <div className="flex items-center gap-1 sm:gap-1.5 border border-white/10 rounded-lg px-2 sm:px-3 py-1 sm:py-1.5 bg-white/[0.03]">
+        <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" viewBox="0 0 24 24" fill="#635BFF" xmlns="http://www.w3.org/2000/svg">
           <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z" />
         </svg>
-        <span className="text-xs text-gray-400">Powered by <span className="text-[#635BFF] font-semibold">Stripe</span></span>
+        <span className="text-[10px] sm:text-xs text-gray-400">Powered by <span className="text-[#635BFF] font-semibold">Stripe</span></span>
       </div>
       {/* SSL */}
-      <div className="flex items-center gap-1.5 border border-white/10 rounded-lg px-3 py-1.5 bg-white/[0.03]">
-        <svg className="w-3.5 h-3.5 text-green-400 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+      <div className="flex items-center gap-1 sm:gap-1.5 border border-white/10 rounded-lg px-2 sm:px-3 py-1 sm:py-1.5 bg-white/[0.03]">
+        <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-green-400 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
         </svg>
-        <span className="text-xs text-gray-400">Ligação <span className="text-green-400 font-medium">SSL</span> segura</span>
+        <span className="text-[10px] sm:text-xs text-gray-400">Ligação <span className="text-green-400 font-medium">SSL</span> segura</span>
       </div>
       {/* Cards */}
-      <div className="flex items-center gap-1.5 border border-white/10 rounded-lg px-3 py-1.5 bg-white/[0.03]">
-        <svg className="w-3.5 h-3.5 text-gray-400 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+      <div className="flex items-center gap-1 sm:gap-1.5 border border-white/10 rounded-lg px-2 sm:px-3 py-1 sm:py-1.5 bg-white/[0.03]">
+        <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gray-400 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 21Z" />
         </svg>
-        <span className="text-xs text-gray-400">Visa · Mastercard · MB Way</span>
+        <span className="text-[10px] sm:text-xs text-gray-400">Visa · Mastercard · MB Way</span>
       </div>
     </div>
   );
@@ -543,14 +543,14 @@ export default function HomePage() {
       {/* ── Sticky header: announcement bar + nav ── */}
       <div className="sticky top-0 z-20 bg-brand-navy/95 backdrop-blur-sm">
         {/* Launch Offer Announcement Bar */}
-        <div className="bg-brand-blue/10 border-b border-brand-blue/25 px-4 py-2.5 text-center">
-          <p className="text-sm font-medium flex items-center justify-center gap-2 flex-wrap">
+        <div className="bg-brand-blue/10 border-b border-brand-blue/25 px-3 py-2 text-center">
+          <p className="text-xs sm:text-sm font-medium flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
             <span className="text-amber-400">⏱</span>
-            <span className="text-gray-300">Preço de lançamento termina em</span>
+            <span className="text-gray-300">Preço termina em</span>
             <CountdownTimer variant="inline" />
             <span className="text-gray-600 hidden sm:inline">·</span>
             <span className="text-white font-bold">€9,99</span>
-            <span className="line-through text-gray-500 text-xs">€19,99</span>
+            <span className="line-through text-gray-500 text-[10px] sm:text-xs">€19,99</span>
           </p>
         </div>
 
@@ -577,20 +577,19 @@ export default function HomePage() {
       </div>{/* end sticky header */}
 
       {/* ── Hero ── */}
-      <section className="px-6 py-12 sm:py-20 text-center">
+      <section className="px-5 py-10 sm:py-20 text-center">
         <div className="max-w-3xl mx-auto">
-          {/* Pain point opener — bolder for stronger hook */}
-          <p className="text-brand-blue font-bold text-sm uppercase tracking-widest mb-5">
+          <p className="text-brand-blue font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">
             Cansado de treinar sem estrutura e não evoluir?
           </p>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-5">
             O teu plano de ciclismo{" "}
             <span className="gradient-text">personalizado por IA</span>,
             {" "}pronto em segundos
           </h1>
 
-          <p className="text-base sm:text-xl text-gray-300 mb-10 leading-relaxed">
+          <p className="text-base sm:text-xl text-gray-300 mb-8 sm:mb-10 leading-relaxed">
             Preenches um formulário de 5 minutos. A IA analisa o teu perfil e
             cria um plano completo — semana a semana, com intensidades,
             aquecimentos e nutrição. Vês grátis. Pagas só para descarregar o PDF.
@@ -598,28 +597,28 @@ export default function HomePage() {
 
           <Link
             href="/gerar"
-            className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-base sm:text-lg px-6 sm:px-10 py-3 sm:py-4 rounded-xl transition-colors shadow-lg shadow-brand-blue/30"
+            className="block sm:inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-base sm:text-lg px-6 sm:px-10 py-4 rounded-xl transition-colors shadow-lg shadow-brand-blue/30"
           >
             Gerar o Meu Plano Grátis →
           </Link>
 
-          <p className="text-sm text-gray-500 mt-4">
+          <p className="text-xs sm:text-sm text-gray-500 mt-3">
             Pré-visualização grátis · Só pagas para descarregar · Sem subscrições
           </p>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-6 mt-10 text-sm text-gray-500">
-            <span className="flex items-center gap-2">
+          <div className="grid grid-cols-1 sm:flex sm:flex-wrap justify-center gap-2 sm:gap-6 mt-6 sm:mt-10 text-xs sm:text-sm text-gray-500">
+            <span className="flex items-center justify-center gap-2">
               <span className="text-green-400">✓</span> Plano em 1 a 2 minutos
             </span>
-            <span className="flex items-center gap-2">
+            <span className="flex items-center justify-center gap-2">
               <span className="text-green-400">✓</span> Vês grátis antes de pagar
             </span>
-            <span className="flex items-center gap-2">
+            <span className="flex items-center justify-center gap-2">
               <span className="text-green-400">✓</span>
               <span className="line-through text-gray-600 mr-0.5">€19,99</span>
               <span className="text-white font-semibold">€9,99</span>
-              <span className="text-amber-400 text-xs font-medium">· oferta limitada</span>
+              <span className="text-amber-400 text-[10px] sm:text-xs font-medium">· oferta limitada</span>
             </span>
           </div>
 
@@ -629,9 +628,9 @@ export default function HomePage() {
       </section>
 
       {/* ── PDF Preview Mockup — scrollable simulation ── */}
-      <section className="px-6 py-12">
+      <section className="px-4 sm:px-6 py-10 sm:py-12">
         <div className="max-w-2xl mx-auto">
-          <p className="text-center text-sm text-gray-500 mb-6 uppercase tracking-widest">O que recebes no PDF</p>
+          <p className="text-center text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6 uppercase tracking-widest">O que recebes no PDF</p>
           <PDFMockup />
           <p className="text-center text-xs text-gray-600 mt-3">
             Exemplo do formato do PDF — o teu plano terá o teu conteúdo personalizado
@@ -640,23 +639,22 @@ export default function HomePage() {
       </section>
 
       {/* ── How It Works ── */}
-      <section id="como-funciona" className="px-6 py-16 bg-white/5">
+      <section id="como-funciona" className="px-5 sm:px-6 py-10 sm:py-16 bg-white/5">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-3">Como funciona</h2>
-          <p className="text-center text-gray-400 mb-12">De zero ao teu plano personalizado em menos de 5 minutos.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-2 sm:mb-3">Como funciona</h2>
+          <p className="text-center text-gray-400 text-sm sm:text-base mb-8 sm:mb-12">De zero ao teu plano personalizado em menos de 5 minutos.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
             {steps.map((step) => (
               <div
                 key={step.numero}
-                className="flex items-start gap-4 p-6 rounded-xl bg-white/5 border border-white/10 hover:border-brand-blue/30 transition-colors"
+                className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl bg-white/5 border border-white/10 hover:border-brand-blue/30 transition-colors"
               >
-                {/* Styled circle replaces raw large number */}
-                <div className="w-11 h-11 rounded-full border-2 border-brand-blue/40 bg-brand-blue/10 flex items-center justify-center shrink-0">
-                  <span className="text-sm font-bold text-brand-blue">{step.numero}</span>
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-brand-blue/40 bg-brand-blue/10 flex items-center justify-center shrink-0">
+                  <span className="text-xs sm:text-sm font-bold text-brand-blue">{step.numero}</span>
                 </div>
                 <div>
-                  <p className="text-white font-semibold mb-1">{step.titulo}</p>
-                  <p className="text-gray-400 text-sm leading-relaxed">{step.texto}</p>
+                  <p className="text-white font-semibold text-sm sm:text-base mb-0.5 sm:mb-1">{step.titulo}</p>
+                  <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{step.texto}</p>
                 </div>
               </div>
             ))}
@@ -665,31 +663,30 @@ export default function HomePage() {
       </section>
 
       {/* ── Features ── */}
-      <section className="px-6 py-16">
+      <section className="px-5 sm:px-6 py-10 sm:py-16">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-3">Porquê o VelociPlan?</h2>
-          <p className="text-center text-gray-400 mb-12">Um treinador pessoal custa centenas de euros por mês. O VelociPlan custa €9,99.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-2 sm:mb-3">Porquê o VelociPlan?</h2>
+          <p className="text-center text-gray-400 text-sm sm:text-base mb-8 sm:mb-12">Um treinador pessoal custa centenas de euros por mês. O VelociPlan custa €9,99.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
             {features.map((f) => (
               <div
                 key={f.title}
-                className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-brand-blue/50 transition-colors group"
+                className="p-4 sm:p-6 rounded-xl bg-white/5 border border-white/10 hover:border-brand-blue/50 transition-colors group"
               >
-                {/* SVG icon inside a styled container */}
-                <div className="w-11 h-11 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-4 group-hover:bg-brand-blue/20 transition-colors">
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-3 sm:mb-4 group-hover:bg-brand-blue/20 transition-colors">
                   <f.Icon />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{f.description}</p>
+                <h3 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">{f.title}</h3>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{f.description}</p>
               </div>
             ))}
           </div>
 
-          {/* Intermediate CTA — captures users converted before reaching the bottom */}
-          <div className="text-center mt-12">
+          {/* Intermediate CTA */}
+          <div className="text-center mt-8 sm:mt-12">
             <Link
               href="/gerar"
-              className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-base px-8 py-3.5 rounded-xl transition-colors shadow-lg shadow-brand-blue/25"
+              className="block sm:inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-base px-8 py-3.5 rounded-xl transition-colors shadow-lg shadow-brand-blue/25"
             >
               Gerar o Meu Plano Grátis →
             </Link>
@@ -762,19 +759,18 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="px-6 py-16">
+      <section className="px-5 sm:px-6 py-10 sm:py-16">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-3">Perguntas frequentes</h2>
-          <p className="text-center text-gray-400 mb-12">Temos resposta para as tuas dúvidas.</p>
-          <div className="space-y-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-2 sm:mb-3">Perguntas frequentes</h2>
+          <p className="text-center text-gray-400 text-sm sm:text-base mb-8 sm:mb-12">Temos resposta para as tuas dúvidas.</p>
+          <div className="space-y-2 sm:space-y-3">
             {faqs.map((faq) => (
               <details
                 key={faq.pergunta}
                 className="group rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors"
               >
-                <summary className="flex items-center justify-between px-6 py-5 cursor-pointer gap-4">
+                <summary className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 cursor-pointer gap-3 sm:gap-4">
                   <p className="text-white font-semibold text-sm">{faq.pergunta}</p>
-                  {/* Chevron rotates 180° when open */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -786,9 +782,9 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                   </svg>
                 </summary>
-                <div className="px-6 pb-5">
-                  <div className="h-px bg-white/10 mb-4" />
-                  <p className="text-gray-400 text-sm leading-relaxed">{faq.resposta}</p>
+                <div className="px-4 sm:px-6 pb-4 sm:pb-5">
+                  <div className="h-px bg-white/10 mb-3 sm:mb-4" />
+                  <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{faq.resposta}</p>
                 </div>
               </details>
             ))}
@@ -797,35 +793,32 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA Bottom — distinct background with radial glow ── */}
-      <section className="relative px-6 py-20 text-center overflow-hidden border-t border-brand-blue/20">
-        {/* Radial glow that sets this section apart from the rest of the page */}
+      <section className="relative px-5 sm:px-6 py-12 sm:py-20 text-center overflow-hidden border-t border-brand-blue/20">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(30,144,255,0.10) 0%, transparent 65%)" }}
         />
         <div className="relative max-w-2xl mx-auto">
-          <h2 className="text-2xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">
             Pronto para treinar com{" "}
             <span className="gradient-text">inteligência</span>?
           </h2>
-          <p className="text-gray-400 mb-3 text-base sm:text-lg">
+          <p className="text-gray-400 mb-3 text-sm sm:text-lg">
             Preenche o formulário em 5 minutos e vê o teu plano grátis.
           </p>
-          {/* Countdown grid + price anchor */}
-          <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-4">
+          <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-3 sm:mb-4">
             O preço sobe em
           </p>
           <CountdownTimer variant="grid" />
-          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-3 mt-6 mb-8">
-            <span className="text-gray-500 text-sm line-through">€19,99</span>
-            <span className="text-white font-bold text-xl">€9,99</span>
-            <span className="w-px h-5 bg-white/10" />
-            <span className="text-gray-400 text-sm">pagamento único · PDF para sempre</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-white/5 border border-white/10 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 mt-5 sm:mt-6 mb-6 sm:mb-8">
+            <span className="text-gray-500 text-xs sm:text-sm line-through">€19,99</span>
+            <span className="text-white font-bold text-lg sm:text-xl">€9,99</span>
+            <span className="w-px h-4 sm:h-5 bg-white/10 hidden sm:block" />
+            <span className="text-gray-400 text-xs sm:text-sm w-full sm:w-auto">pagamento único · PDF para sempre</span>
           </div>
-          <br />
           <Link
             href="/gerar"
-            className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-lg shadow-brand-blue/30"
+            className="block sm:inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-base sm:text-lg px-6 sm:px-10 py-4 rounded-xl transition-colors shadow-lg shadow-brand-blue/30"
           >
             Gerar o Meu Plano Grátis →
           </Link>
@@ -834,19 +827,17 @@ export default function HomePage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-white/10 px-6 py-10">
+      <footer className="border-t border-white/10 px-5 sm:px-6 py-8 sm:py-10">
         <div className="max-w-3xl mx-auto">
-          {/* Logo + legal links */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-6">
-            <Image src="/logo.png" alt="VelociPlan" width={130} height={39} className="opacity-60" />
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 mb-5 sm:mb-6">
+            <Image src="/logo.png" alt="VelociPlan" width={130} height={39} className="opacity-60 w-24 sm:w-32 h-auto" />
+            <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-500">
               <Link href="/privacidade" className="hover:text-gray-300 transition-colors">Política de Privacidade</Link>
               <Link href="/termos" className="hover:text-gray-300 transition-colors">Termos e Condições</Link>
               <Link href="/reembolso" className="hover:text-gray-300 transition-colors">Política de Reembolso</Link>
             </div>
           </div>
-          {/* Legal entity + support */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-white/5 text-xs text-gray-600">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 pt-5 sm:pt-6 border-t border-white/5 text-xs text-gray-600">
             <p>
               © {new Date().getFullYear()} VelociPlan · Portugal
               <span className="mx-2 opacity-40">·</span>
