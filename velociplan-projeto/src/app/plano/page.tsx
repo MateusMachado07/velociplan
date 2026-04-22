@@ -148,7 +148,12 @@ export default function PlanoPage() {
   async function handlePagar() {
     setPagando(true);
     try {
-      const res = await fetch("/api/stripe/checkout", { method: "POST" });
+      const plano = state.status === "success" ? state.plano : null;
+      const res = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plano }),
+      });
       const data = await res.json() as { url?: string; error?: string };
 
       if (!res.ok || !data.url) {

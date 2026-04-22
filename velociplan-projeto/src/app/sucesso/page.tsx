@@ -58,20 +58,17 @@ function SucessoContent() {
   }, [sessionId]);
 
   // Called when the user clicks "Descarregar PDF"
-  // Sends the plan data to the server, which verifies payment and generates the PDF
+  // The server retrieves the plan from Stripe metadata (stored at checkout).
+  // state.plano is sent as a fallback for sessions created before metadata storage.
   async function handleDownload() {
-    if (!sessionId) return;
-    if (state.status !== "paid" || !state.plano) {
-      alert("O teu plano não foi encontrado. Volta à página inicial e gera um novo plano.");
-      return;
-    }
+    if (!sessionId || state.status !== "paid") return;
     setDownloading(true);
 
     try {
       const res = await fetch("/api/gerar-pdf", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ session_id: sessionId, plano: state.plano }),
+        body: JSON.stringify({ session_id: sessionId, plano: state.plano ?? undefined }),
       });
 
       if (!res.ok) {
