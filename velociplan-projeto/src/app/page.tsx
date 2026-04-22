@@ -261,7 +261,7 @@ function PDFMockup() {
       </div>
 
       <div
-        className="max-h-[500px] overflow-y-auto bg-[#0D1B2A]"
+        className="max-h-[280px] sm:max-h-[500px] overflow-y-auto bg-[#0D1B2A]"
         style={{ scrollbarWidth: "thin", scrollbarColor: "#1E90FF40 #0a1520" }}
       >
         {/* Content */}
