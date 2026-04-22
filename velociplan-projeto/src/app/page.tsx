@@ -660,27 +660,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Launch Bonus Callout ── */}
-      <section className="px-6 pb-16">
-        <div className="max-w-2xl mx-auto">
-          <div className="rounded-2xl border border-amber-500/30 bg-amber-500/[0.06] p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <div className="text-3xl shrink-0">🎁</div>
-            <div className="flex-1">
-              <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-1">Bónus exclusivo de lançamento</p>
-              <p className="text-white font-semibold text-base">Guia de Nutrição para Ciclistas — PDF gratuito</p>
-              <p className="text-gray-400 text-sm mt-1 leading-relaxed">
-                8 páginas com estratégias de alimentação antes, durante e após o treino. Incluído grátis no teu plano{" "}
-                <span className="text-amber-400 font-medium">só durante o período de lançamento</span>.
-              </p>
-            </div>
-            <div className="shrink-0 text-center sm:text-right">
-              <p className="text-gray-500 text-xs line-through">€4,99</p>
-              <p className="text-white font-bold text-xl">Grátis</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── Testimonials ── */}
       <section className="py-16 bg-white/[0.03]">
         <div className="px-6 max-w-4xl mx-auto text-center mb-12">
